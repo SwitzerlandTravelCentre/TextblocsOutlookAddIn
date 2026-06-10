@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Text Blocks JSON Viewer</title>
+    <style>
+      :root {
+        color: #1f2523;
+        background: #f5f7f6;
+        font-family: "Segoe UI", system-ui, sans-serif;
+        font-size: 14px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        padding: 24px;
+      }
+
+      main {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      header,
+      .toolbar,
+      .summary,
+      .card {
+        border: 1px solid #d8dfdc;
+        border-radius: 8px;
+        background: #fff;
+      }
+
+      header {
+        padding: 18px;
+      }
+
+      h1,
+      p {
+        margin: 0;
+      }
+
+      h1 {
+        font-size: 24px;
+      }
+
+      .hint {
+        margin-top: 6px;
+        color: #64716c;
+      }
+
+      .toolbar {
+        display: grid;
+        grid-template-columns: minmax(220px, 1fr) 160px 220px;
+        gap: 12px;
+        margin-top: 16px;
+        padding: 14px;
+      }
+
+      input,
+      select,
+      button {
+        min-height: 38px;
+        border: 1px solid #c8d3ce;
+        border-radius: 6px;
+        font: inherit;
+      }
+
+      input,
+      select {
+        width: 100%;
+        padding: 0 10px;
+        background: #fff;
+      }
+
+      button {
+        padding: 0 14px;
+        background: #2f5d50;
+        color: #fff;
+        font-weight: 700;
+        cursor: pointer;
+      }
+
+      .summary {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 12px;
+        margin-top: 16px;
+        padding: 14px;
+      }
+
+      .metric {
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+      }
+
+      .metric strong {
+        font-size: 20px;
+      }
+
+      .metric span {
+        color: #64716c;
+        font-size: 12px;
+      }
+
+      .list {
+        display: grid;
+        gap: 10px;
+        margin-top: 16px;
+      }
+
+      .card {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 10px;
+        padding: 14px;
+      }
+
+      .meta {
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+      }
+
+      .category {
+        color: #64716c;
+        font-size: 12px;
+      }
+
+      .topic {
+        font-weight: 750;
+      }
+
+      .language {
+        align-self: start;
+        min-width: 34px;
+        padding: 5px 8px;
+        border-radius: 999px;
+        background: #f2c14e;
+        color: #3a2b00;
+        font-size: 12px;
+        font-weight: 800;
+        text-align: center;
+      }
+
+      .text {
+        grid-column: 1 / -1;
+        overflow-wrap: anywhere;
+        white-space: pre-wrap;
+      }
+
+      .source {
+        grid-column: 1 / -1;
+        color: #64716c;
+        font-size: 12px;
+      }
+
+      .empty {
+        margin-top: 16px;
+        padding: 18px;
+        border: 1px dashed #c8d3ce;
+        border-radius: 8px;
+        background: #fff;
+        color: #64716c;
+      }
+
+      @media (max-width: 760px) {
+        body {
+          padding: 14px;
+        }
+
+        .toolbar,
+        .summary {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1>Text Blocks JSON Viewer</h1>
+        <p class="hint">Open the generated <code>public/data/textblocks.json</code> file.</p>
+      </header>
+
+      <section class="toolbar">
+        <input id="search" type="search" placeholder="Search category, topic, usage, text..." />
+        <select id="language">
+          <option value="ALL">All languages</option>
+          <option value="DE">DE</option>
+          <option value="FR">FR</option>
+          <option value="EN">EN</option>
+          <option value="IT">IT</option>
+        </select>
+        <button id="openFile" type="button">Open JSON File</button>
+        <input id="fileInput" type="file" accept="application/json,.json" hidden />
+      </section>
+
+      <section class="summary">
+        <div class="metric">
+          <strong id="totalBlocks">0</strong>
+          <span>Total blocks</span>
+        </div>
+        <div class="metric">
+          <strong id="visibleBlocks">0</strong>
+          <span>Visible blocks</span>
+        </div>
+        <div class="metric">
+          <strong id="categories">0</strong>
+          <span>Categories</span>
+        </div>
+        <div class="metric">
+          <strong id="sourceRows">0</strong>
+          <span>Source rows</span>
+        </div>
+      </section>
+
+      <section id="list" class="list"></section>
+      <section id="empty" class="empty">No JSON file loaded yet.</section>
+    </main>
+
+    <script>
+      const state = {
+        blocks: [],
+        sourceRows: 0
+      };
+
+      const elements = {
+        search: document.querySelector("#search"),
+        language: document.querySelector("#language"),
+        openFile: document.querySelector("#openFile"),
+        fileInput: document.querySelector("#fileInput"),
+        list: document.querySelector("#list"),
+        empty: document.querySelector("#empty"),
+        totalBlocks: document.querySelector("#totalBlocks"),
+        visibleBlocks: document.querySelector("#visibleBlocks"),
+        categories: document.querySelector("#categories"),
+        sourceRows: document.querySelector("#sourceRows")
+      };
+
+      function searchable(block) {
+        return [
+          block.category,
+          block.topic,
+          block.usage,
+          block.languageLabel,
+          block.text
+        ]
+          .join(" ")
+          .toLowerCase();
+      }
+
+      function render() {
+        const query = elements.search.value.trim().toLowerCase();
+        const language = elements.language.value;
+        const visible = state.blocks.filter((block) => {
+          const matchesLanguage = language === "ALL" || block.language === language;
+          const matchesQuery = !query || searchable(block).includes(query);
+          return matchesLanguage && matchesQuery;
+        });
+
+        elements.totalBlocks.textContent = state.blocks.length;
+        elements.visibleBlocks.textContent = visible.length;
+        elements.categories.textContent = new Set(state.blocks.map((block) => block.category)).size;
+        elements.sourceRows.textContent = state.sourceRows;
+        elements.list.innerHTML = "";
+
+        if (!state.blocks.length) {
+          elements.empty.textContent = "No JSON file loaded yet.";
+          elements.empty.hidden = false;
+          return;
+        }
+
+        if (!visible.length) {
+          elements.empty.textContent = "No matching text blocks.";
+          elements.empty.hidden = false;
+          return;
+        }
+
+        elements.empty.hidden = true;
+
+        for (const block of visible) {
+          const article = document.createElement("article");
+          article.className = "card";
+          article.innerHTML = `
+            <div class="meta">
+              <span class="category"></span>
+              <span class="topic"></span>
+              <span class="category usage"></span>
+            </div>
+            <span class="language"></span>
+            <div class="text"></div>
+            <div class="source"></div>
+          `;
+          article.querySelector(".category").textContent = block.category || "Uncategorized";
+          article.querySelector(".topic").textContent = block.topic || "Untitled";
+          article.querySelector(".usage").textContent = block.usage ? `Usage: ${block.usage}` : "";
+          article.querySelector(".language").textContent = block.language;
+          article.querySelector(".text").textContent = block.text;
+          article.querySelector(".source").textContent = `${block.id} | ${block.sourceItemId}`;
+          elements.list.appendChild(article);
+        }
+      }
+
+      function loadJson(text) {
+        const data = JSON.parse(text);
+
+        if (data.schemaVersion !== 1 || !Array.isArray(data.blocks)) {
+          throw new Error("Unsupported JSON schema.");
+        }
+
+        state.blocks = data.blocks;
+        state.sourceRows = data.source?.dataRowCount ?? 0;
+        render();
+      }
+
+      elements.openFile.addEventListener("click", () => elements.fileInput.click());
+      elements.fileInput.addEventListener("change", async (event) => {
+        const file = event.target.files?.[0];
+        if (!file) {
+          return;
+        }
+
+        try {
+          loadJson(await file.text());
+        } catch (error) {
+          state.blocks = [];
+          state.sourceRows = 0;
+          elements.empty.textContent = `Could not load JSON: ${error.message}`;
+          elements.empty.hidden = false;
+          render();
+        }
+      });
+      elements.search.addEventListener("input", render);
+      elements.language.addEventListener("change", render);
+
+      render();
+    </script>
+  </body>
+</html>
