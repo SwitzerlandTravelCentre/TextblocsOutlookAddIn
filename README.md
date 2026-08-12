@@ -74,7 +74,7 @@ Italian
 
 `Weight` is optional and defaults to `0`. Use higher values, for example `9` or `10`, to place often-used text blocks higher in the default list. `Englisch` is also supported as an English column name for compatibility with earlier exports.
 
-Line breaks are preserved when the JSON text contains newline characters. In Excel, add line breaks inside a cell with `Alt+Enter`; the converter writes them as `\n`, and the add-in formats them when inserting into Outlook. A blank line creates a new HTML paragraph, while a single line break inside a paragraph becomes an HTML line break. Keep the Excel source as plain text: do not maintain `<p>`, `<br>`, `<a>`, or other HTML tags in the workbook.
+Line breaks are preserved when the JSON text contains newline characters. In Excel, add line breaks inside a cell with `Alt+Enter`; the converter writes them as `\n`, and the add-in formats them when inserting into Outlook. A blank line creates a new HTML paragraph with Outlook-friendly spacing, while a single line break inside a paragraph becomes an HTML line break. Keep the Excel source as plain text: do not maintain `<p>`, `<br>`, `<a>`, or other HTML tags in the workbook.
 
 URLs in the Excel text can be maintained as plain `https://`, `http://`, or `mailto:` values. During Outlook insertion, the add-in turns them into clickable links and keeps punctuation after the URL outside the link.
 

@@ -38,6 +38,8 @@ function trimUrlPunctuation(value: string): { url: string; suffix: string } {
   return { url, suffix };
 }
 
+const outlookParagraphStyle = "margin:0 0 12px 0;";
+
 function textLineToHtml(text: string): string {
   const urlPattern = /\b(?:https?:\/\/|mailto:)[^\s<]+/gi;
   let html = "";
@@ -68,7 +70,7 @@ export function textToOutlookHtml(text: string): string {
     .filter((paragraph) => paragraph.trim().length > 0);
 
   return paragraphs
-    .map((paragraph) => `<p>${paragraph.split("\n").map(textLineToHtml).join("<br>")}</p>`)
+    .map((paragraph) => `<p style="${outlookParagraphStyle}">${paragraph.split("\n").map(textLineToHtml).join("<br>")}</p>`)
     .join("");
 }
 
