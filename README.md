@@ -11,7 +11,7 @@ Internal Outlook task pane add-in for searching, previewing, copying, and insert
 - Searches category, topic, usage, language label, and text.
 - Filters by language and category.
 - Shows the default list by descending `weight`; searched results still use search relevance first.
-- Inserts selected text with `Office.context.mailbox.item.body.setSelectedDataAsync`.
+- Inserts selected text with `Office.context.mailbox.item.body.setSelectedDataAsync` as controlled HTML.
 - Includes clipboard fallback.
 - Supports Outlook task pane pinning in clients that support Mailbox requirement set 1.5 and `VersionOverridesV1_1`.
 
@@ -74,7 +74,17 @@ Italian
 
 `Weight` is optional and defaults to `0`. Use higher values, for example `9` or `10`, to place often-used text blocks higher in the default list. `Englisch` is also supported as an English column name for compatibility with earlier exports.
 
-Line breaks are preserved when the JSON text contains newline characters. In Excel, add line breaks inside a cell with `Alt+Enter`; the converter writes them as `\n`, and the add-in inserts them into Outlook as HTML line breaks.
+Line breaks are preserved when the JSON text contains newline characters. In Excel, add line breaks inside a cell with `Alt+Enter`; the converter writes them as `\n`, and the add-in formats them when inserting into Outlook. A blank line creates a new HTML paragraph, while a single line break inside a paragraph becomes an HTML line break. Keep the Excel source as plain text: do not maintain `<p>`, `<br>`, `<a>`, or other HTML tags in the workbook.
+
+URLs in the Excel text can be maintained as plain `https://`, `http://`, or `mailto:` values. During Outlook insertion, the add-in turns them into clickable links and keeps punctuation after the URL outside the link.
+
+Recommended maintainer workflow:
+
+1. Maintain text blocks in the Excel workbook as readable plain text.
+2. Use blank lines for paragraph breaks and `Alt+Enter` for line breaks inside a cell.
+3. Add links as normal URLs, not as HTML.
+4. Generate `public/data/textblocks.json` from the workbook.
+5. Upload the generated JSON to the hosted add-in location, for example `data/textblocks.json` in SharePoint. This can run weekly and may also be triggered manually.
 
 ## Deployment Notes
 

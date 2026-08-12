@@ -6,15 +6,70 @@ function toPlainTextForOutlook(text: string): string {
   return normalizeLineBreaks(text).replace(/\n/g, "\r\n");
 }
 
-export function textToOutlookHtml(text: string): string {
-  return normalizeLineBreaks(text)
+function escapeHtmlText(text: string): string {
+  return text
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&#39;")
-    .replace(/\t/g, "&nbsp;&nbsp;&nbsp;&nbsp;")
-    .replace(/\n/g, "<br>");
+    .replace(/\t/g, "&nbsp;&nbsp;&nbsp;&nbsp;");
+}
+
+function trimUrlPunctuation(value: string): { url: string; suffix: string } {
+  let url = value;
+  let suffix = "";
+
+  while (/[.,!?;:]$/.test(url)) {
+    suffix = url.charAt(url.length - 1) + suffix;
+    url = url.slice(0, -1);
+  }
+
+  while (url.endsWith(")") && !url.includes("(")) {
+    suffix = ")" + suffix;
+    url = url.slice(0, -1);
+  }
+
+  while (url.endsWith("]") && !url.includes("[")) {
+    suffix = "]" + suffix;
+    url = url.slice(0, -1);
+  }
+
+  return { url, suffix };
+}
+
+function textLineToHtml(text: string): string {
+  const urlPattern = /\b(?:https?:\/\/|mailto:)[^\s<]+/gi;
+  let html = "";
+  let lastIndex = 0;
+
+  for (const match of text.matchAll(urlPattern)) {
+    const matchedUrl = match[0];
+    const matchIndex = match.index ?? 0;
+    const { url, suffix } = trimUrlPunctuation(matchedUrl);
+
+    html += escapeHtmlText(text.slice(lastIndex, matchIndex));
+
+    if (url) {
+      const escapedUrl = escapeHtmlText(url);
+      html += `<a href="${escapedUrl}">${escapedUrl}</a>`;
+    }
+
+    html += escapeHtmlText(suffix);
+    lastIndex = matchIndex + matchedUrl.length;
+  }
+
+  return html + escapeHtmlText(text.slice(lastIndex));
+}
+
+export function textToOutlookHtml(text: string): string {
+  const paragraphs = normalizeLineBreaks(text)
+    .split(/\n[ \t]*\n+/)
+    .filter((paragraph) => paragraph.trim().length > 0);
+
+  return paragraphs
+    .map((paragraph) => `<p>${paragraph.split("\n").map(textLineToHtml).join("<br>")}</p>`)
+    .join("");
 }
 
 function setSelectedBodyData(
