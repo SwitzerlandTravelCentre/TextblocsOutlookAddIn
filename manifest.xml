@@ -6,10 +6,10 @@
   xmlns:mailappor="http://schemas.microsoft.com/office/mailappversionoverrides/1.0"
   xsi:type="MailApp">
   <Id>7D4EC0B5-CB9F-47DE-8D29-862F53CFEB08</Id>
-  <Version>1.0.0.0</Version>
+  <Version>1.0.1.0</Version>
   <ProviderName>Switzerland Travel Centre AG</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
-  <DisplayName DefaultValue="STC Textblocs"/>
+  <DisplayName DefaultValue="STC Textblocs v1.0.1"/>
   <Description DefaultValue="Search, preview, copy, and insert internal multilingual email text blocks."/>
   <!-- Production: replace every https://localhost:3000 URL in this manifest
        with the SharePoint folder where the built dist files are hosted.
@@ -88,7 +88,7 @@
         <bt:Url id="Taskpane.Url" DefaultValue="https://localhost:3000/src/taskpane/taskpane.html"/>
       </bt:Urls>
       <bt:ShortStrings>
-        <bt:String id="Group.Label" DefaultValue="STC Textblocs"/>
+        <bt:String id="Group.Label" DefaultValue="STC Textblocs v1.0.1"/>
         <bt:String id="Button.Label" DefaultValue="Text Blocks"/>
       </bt:ShortStrings>
       <bt:LongStrings>
@@ -141,7 +141,7 @@
           <bt:Url id="Taskpane.Url" DefaultValue="https://localhost:3000/src/taskpane/taskpane.html"/>
         </bt:Urls>
         <bt:ShortStrings>
-          <bt:String id="Group.Label" DefaultValue="STC Textblocs"/>
+          <bt:String id="Group.Label" DefaultValue="STC Textblocs v1.0.1"/>
           <bt:String id="Button.Label" DefaultValue="Text Blocks"/>
         </bt:ShortStrings>
         <bt:LongStrings>
