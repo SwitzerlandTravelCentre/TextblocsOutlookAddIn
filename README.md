@@ -118,6 +118,7 @@ Recommended maintainer workflow:
 - `public/data/textblocks.json` contains the generated static text block data.
 - `tools/convert-xlsx-to-json.py` converts the Excel source workbook to JSON.
 - `tools/convert-xlsx-to-json-runner.txt` is the Windows/OneDrive-safe runner used by `npm run convert:textblocks`.
+- `docs/xls-markdown-guide.md` explains how maintainers format Excel text blocks with Markdown.
 - `src/models/textBlock.ts` contains runtime text block types.
 - `src/services/textBlockDataService.ts` loads and validates the static JSON data.
 - `src/utils/searchTextBlocks.ts` handles filtering and relevance sorting.
