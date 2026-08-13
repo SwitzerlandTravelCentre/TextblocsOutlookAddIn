@@ -86,7 +86,7 @@ function App() {
     setNotice(null);
 
     try {
-      await insertTextIntoEmail(block.text);
+      await insertTextIntoEmail(block.text, block.formattedText);
       setNotice({ kind: "success", message: "Text inserted." });
     } catch (error) {
       setNotice({ kind: "error", message: getFriendlyInsertError(error) });
@@ -115,7 +115,7 @@ function App() {
       <header className="pane-header">
         <div>
           <p className="eyebrow">TextBlocsFIT</p>
-          <h1>STC Textblocs v1.0.2</h1>
+          <h1>STC Textblocs v1.0.3</h1>
         </div>
       </header>
 

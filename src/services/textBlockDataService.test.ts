@@ -21,7 +21,11 @@ describe("TextBlockDataService", () => {
             usage: "",
             language: "DE",
             languageLabel: "German",
-            text: "Danke."
+            text: "Danke.",
+            formattedText: [
+              { text: "Danke", bold: true },
+              { text: ".", highlight: "required", href: "https://example.com" }
+            ]
           }
         ]
       })
@@ -32,6 +36,10 @@ describe("TextBlockDataService", () => {
 
     expect(blocks).toHaveLength(1);
     expect(blocks[0].weight).toBe(0);
+    expect(blocks[0].formattedText).toEqual([
+      { text: "Danke", bold: true },
+      { text: ".", highlight: "required", href: "https://example.com" }
+    ]);
     expect(fetchMock).toHaveBeenCalledWith(
       "/data/textblocks.json",
       expect.objectContaining({ cache: "no-cache" })

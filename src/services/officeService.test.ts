@@ -8,15 +8,30 @@ describe("textToOutlookHtml", () => {
     );
   });
 
-  it("converts supported links to anchors", () => {
+  it("converts supported links to black anchors", () => {
     expect(textToOutlookHtml("See https://www.sbb.ch/de. Email mailto:test@example.com")).toBe(
-      '<p style="margin:0 0 12px 0;">See <a href="https://www.sbb.ch/de">https://www.sbb.ch/de</a>. Email <a href="mailto:test@example.com">mailto:test@example.com</a></p>'
+      '<p style="margin:0 0 12px 0;">See <a href="https://www.sbb.ch/de" style="color:#000;text-decoration:underline;">https://www.sbb.ch/de</a>. Email <a href="mailto:test@example.com" style="color:#000;text-decoration:underline;">mailto:test@example.com</a></p>'
     );
   });
 
   it("keeps closing punctuation outside linked URLs", () => {
     expect(textToOutlookHtml("Terms (https://example.com/gtc).")).toBe(
-      '<p style="margin:0 0 12px 0;">Terms (<a href="https://example.com/gtc">https://example.com/gtc</a>).</p>'
+      '<p style="margin:0 0 12px 0;">Terms (<a href="https://example.com/gtc" style="color:#000;text-decoration:underline;">https://example.com/gtc</a>).</p>'
+    );
+  });
+
+  it("renders exported Excel rich text formatting", () => {
+    expect(
+      textToOutlookHtml("Bold Link Change\n\nNext", [
+        { text: "Bold", bold: true },
+        { text: " " },
+        { text: "Link", href: "https://example.com" },
+        { text: " " },
+        { text: "Change", highlight: "required" },
+        { text: "\n\nNext" }
+      ])
+    ).toBe(
+      '<p style="margin:0 0 12px 0;"><strong>Bold</strong> <a href="https://example.com" style="color:#000;text-decoration:underline;">Link</a> <span style="background-color:#fff2cc;color:#000;">Change</span></p><p style="margin:0 0 12px 0;">Next</p>'
     );
   });
 

@@ -1,4 +1,12 @@
 export type TextBlockLanguage = "DE" | "FR" | "EN" | "IT";
+export type TextBlockHighlight = "required";
+
+export interface TextBlockFormattedRun {
+  text: string;
+  bold?: boolean;
+  highlight?: TextBlockHighlight;
+  href?: string;
+}
 
 export interface TextBlock {
   id: string;
@@ -12,6 +20,7 @@ export interface TextBlock {
   languageLabel: string;
   weight: number;
   text: string;
+  formattedText?: TextBlockFormattedRun[];
 }
 
 export interface TextBlockProvider {

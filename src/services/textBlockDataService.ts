@@ -1,4 +1,10 @@
-import { TextBlock, TextBlockDataFile, TextBlockLanguage, TextBlockProvider } from "../models/textBlock";
+import {
+  TextBlock,
+  TextBlockDataFile,
+  TextBlockFormattedRun,
+  TextBlockLanguage,
+  TextBlockProvider
+} from "../models/textBlock";
 
 const languages: TextBlockLanguage[] = ["DE", "FR", "EN", "IT"];
 const textBlockDataRelativePath = "../../data/textblocks.json";
@@ -14,6 +20,19 @@ function getTextBlockDataUrl(): string {
   return new URL(textBlockDataRelativePath, window.location.href).toString();
 }
 
+function isFormattedTextRun(value: unknown): value is TextBlockFormattedRun {
+  if (!value || typeof value !== "object") {
+    return false;
+  }
+
+  const run = value as Partial<TextBlockFormattedRun>;
+  const hasValidBold = run.bold === undefined || typeof run.bold === "boolean";
+  const hasValidHighlight = run.highlight === undefined || run.highlight === "required";
+  const hasValidHref = run.href === undefined || typeof run.href === "string";
+
+  return typeof run.text === "string" && hasValidBold && hasValidHighlight && hasValidHref;
+}
+
 function isTextBlock(value: unknown): value is TextBlock {
   if (!value || typeof value !== "object") {
     return false;
@@ -21,6 +40,9 @@ function isTextBlock(value: unknown): value is TextBlock {
 
   const block = value as Partial<TextBlock>;
   const hasValidWeight = block.weight === undefined || typeof block.weight === "number";
+  const hasValidFormattedText =
+    block.formattedText === undefined ||
+    (Array.isArray(block.formattedText) && block.formattedText.every(isFormattedTextRun));
 
   return (
     typeof block.id === "string" &&
@@ -31,6 +53,7 @@ function isTextBlock(value: unknown): value is TextBlock {
     typeof block.text === "string" &&
     typeof block.languageLabel === "string" &&
     hasValidWeight &&
+    hasValidFormattedText &&
     !!block.language &&
     languages.includes(block.language)
   );
