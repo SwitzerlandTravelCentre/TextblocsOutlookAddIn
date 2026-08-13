@@ -63,7 +63,11 @@ This uses `tools/convert-xlsx-to-json-runner.txt`, which keeps UTF-8 formatting 
 python tools/convert-xlsx-to-json.py
 ```
 
-The converter requires Python with `openpyxl` available.
+The converter requires Python with `openpyxl` available. If `openpyxl` is missing, install it with:
+
+```powershell
+python -m pip install openpyxl
+```
 
 The converter expects these workbook columns:
 

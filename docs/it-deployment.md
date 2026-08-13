@@ -28,7 +28,11 @@ To convert another workbook, pass it after `--`:
 npm run convert:textblocks -- "C:\path\to\STC_Textblocs_Source.xlsx" --output public\data\textblocks.json
 ```
 
-The converter requires Python with `openpyxl` available.
+The converter requires Python with `openpyxl` available. If `openpyxl` is missing, install it with:
+
+```powershell
+python -m pip install openpyxl
+```
 
 `Usage` and `Weight` workbook columns are optional. Missing `Usage` values default to an empty value. Missing `Weight` values default to `0`; higher values move entries higher in the default, non-search list. Search results are still ordered by search relevance.
 

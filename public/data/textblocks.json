@@ -6,7 +6,7 @@
     "sheetCount": 1,
     "dataRowCount": 74
   },
-  "generatedAt": "2026-08-13T10:37:30+00:00",
+  "generatedAt": "2026-08-13T11:05:42+00:00",
   "blockCount": 296,
   "blocks": [
     {
@@ -1798,7 +1798,14 @@
           "bold": true
         },
         {
-          "text": "\n\nIhr aktuelles Angebot wurde individuell für Sie zusammengestellt und basiert auf den derzeit verfügbaren Kontingenten. Besonders gefragte Leistungen wie Panoramazüge und ausgewählte Hotels sind oft schnell ausgebucht. Mit einer frühzeitigen Bestätigung stellen Sie sicher, dass Ihre Reise genau wie geplant umgesetzt werden kann.\n\n"
+          "text": "\n\nIhr aktuelles Angebot wurde individuell für Sie zusammengestellt und basiert auf den derzeit verfügbaren Kontingenten. Besonders gefragte Leistungen wie "
+        },
+        {
+          "text": "Panoramazüge",
+          "bold": true
+        },
+        {
+          "text": " und ausgewählte Hotels sind oft schnell ausgebucht. Mit einer frühzeitigen Bestätigung stellen Sie sicher, dass Ihre Reise genau wie geplant umgesetzt werden kann.\n\n"
         },
         {
           "text": "Sichern Sie sich Ihre Reise, indem Sie Ihre Offerte (",
