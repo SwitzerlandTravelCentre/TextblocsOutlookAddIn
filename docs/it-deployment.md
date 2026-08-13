@@ -16,17 +16,23 @@ The add-in currently uses a static JSON file:
 public/data/textblocks.json
 ```
 
-The JSON is generated from the Excel source workbook with:
+The source workbook lives in `source/STC_Textblocs_Source.xlsx`. Generate the JSON with:
 
 ```powershell
-python tools/convert-xlsx-to-json.py "C:\path\to\Bausteine E-Mails (1).xlsx" --output public\data\textblocks.json
+npm run convert:textblocks
+```
+
+To convert another workbook, pass it after `--`:
+
+```powershell
+npm run convert:textblocks -- "C:\path\to\STC_Textblocs_Source.xlsx" --output public\data\textblocks.json
 ```
 
 The converter requires Python with `openpyxl` available.
 
-The optional `Weight` workbook column is written to JSON as `weight`. Missing values default to `0`; higher values move entries higher in the default, non-search list. Search results are still ordered by search relevance.
+`Usage` and `Weight` workbook columns are optional. Missing `Usage` values default to an empty value. Missing `Weight` values default to `0`; higher values move entries higher in the default, non-search list. Search results are still ordered by search relevance.
 
-Line breaks inside workbook cells should be entered with `Alt+Enter`. They are preserved in JSON as newline characters and inserted into Outlook as HTML line breaks.
+Line breaks inside workbook cells should be entered with `Alt+Enter`. They are preserved in JSON as newline characters and inserted into Outlook as paragraphs and line breaks. Markdown-style `**bold**`, `==required text==`, `[link label](https://example.com)`, and `- ` bullet markers are converted into Outlook-ready formatting.
 
 The add-in loads the file at runtime from:
 

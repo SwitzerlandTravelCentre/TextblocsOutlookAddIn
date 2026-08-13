@@ -2,11 +2,11 @@
   "schemaVersion": 1,
   "source": {
     "type": "xlsx",
-    "fileName": "Bausteine E-Mails (1).xlsx",
+    "fileName": "STC_Textblocs_Source.xlsx",
     "sheetCount": 1,
     "dataRowCount": 74
   },
-  "generatedAt": "2026-05-27T10:12:26+00:00",
+  "generatedAt": "2026-08-13T10:37:30+00:00",
   "blockCount": 296,
   "blocks": [
     {
@@ -150,7 +150,7 @@
       "language": "EN",
       "languageLabel": "English",
       "weight": 0,
-      "text": "If you have any questions about your travel documents or require further information, please contact us on 043 210 55 00.\n\nWe thank you for your trust and wish you a pleasant stay.\n\nKind regards"
+      "text": "\"If you have any questions about your travel documents or require further information, please contact us on 043 210 55 00.\n\nWe thank you for your trust and wish you a pleasant stay.\n\nKind regards\""
     },
     {
       "id": "hotel-send-booking-confirmation-with-all-required-infos-farewell-4-it",
@@ -956,7 +956,19 @@
       "language": "DE",
       "languageLabel": "German",
       "weight": 0,
-      "text": "Sie sitzen gemeinsam im XX Express in einem Viererabteil, auch wenn die Platznummerierung nicht aufeinanderfolgend ist."
+      "text": "Sie sitzen gemeinsam im XX Express in einem Viererabteil, auch wenn die Platznummerierung nicht aufeinanderfolgend ist.",
+      "formattedText": [
+        {
+          "text": "Sie sitzen gemeinsam im"
+        },
+        {
+          "text": " XX ",
+          "highlight": "required"
+        },
+        {
+          "text": "Express in einem Viererabteil, auch wenn die Platznummerierung nicht aufeinanderfolgend ist."
+        }
+      ]
     },
     {
       "id": "rail-seat-reservation-numbering-of-seats-20-fr",
@@ -982,7 +994,19 @@
       "language": "EN",
       "languageLabel": "English",
       "weight": 0,
-      "text": "You will be sitting together in a four-seater compartment on the XX Express,\neven though the seat numbering is not consecutive."
+      "text": "You will be sitting together in a four-seater compartment on the XX Express,\neven though the seat numbering is not consecutive.",
+      "formattedText": [
+        {
+          "text": "You will be sitting together in a four-seater compartment on the "
+        },
+        {
+          "text": "XX",
+          "highlight": "required"
+        },
+        {
+          "text": " Express,\neven though the seat numbering is not consecutive."
+        }
+      ]
     },
     {
       "id": "rail-seat-reservation-numbering-of-seats-20-it",
@@ -1060,7 +1084,26 @@
       "language": "DE",
       "languageLabel": "German",
       "weight": 0,
-      "text": "Wir möchten Sie darüber informieren, dass die Verfügbarkeiten der Panoramazüge für die kommende Saison 202x/202x derzeit noch nicht im System hinterlegt sind. Die Reservierung von Plätzen wird voraussichtlich ab Ende Oktober/Anfang November 202x möglich sein."
+      "text": "Wir möchten Sie darüber informieren, dass die Verfügbarkeiten der Panoramazüge für die kommende Saison 202x/202x derzeit noch nicht im System hinterlegt sind. Die Reservierung von Plätzen wird voraussichtlich ab Ende Oktober/Anfang November 202x möglich sein.",
+      "formattedText": [
+        {
+          "text": "Wir möchten Sie darüber informieren, dass die Verfügbarkeiten der Panoramazüge für die kommende Saison"
+        },
+        {
+          "text": " 202x/202x",
+          "bold": true
+        },
+        {
+          "text": " derzeit noch nicht im System hinterlegt sind. Die Reservierung von Plätzen wird voraussichtlich ab Ende Oktober/Anfang November "
+        },
+        {
+          "text": "202x ",
+          "bold": true
+        },
+        {
+          "text": "möglich sein."
+        }
+      ]
     },
     {
       "id": "rail-seat-reservation-reservation-for-next-season-22-fr",
@@ -1073,7 +1116,26 @@
       "language": "FR",
       "languageLabel": "French",
       "weight": 0,
-      "text": "Nous vous informons que les disponibilités des trains panoramiques pour la prochaine saison 202x/202x ne sont pas encore chargées dans le système. Les réservations de places devraient être disponibles à partir de fin octobre/début novembre 202x."
+      "text": "Nous vous informons que les disponibilités des trains panoramiques pour la prochaine saison 202x/202x ne sont pas encore chargées dans le système. Les réservations de places devraient être disponibles à partir de fin octobre/début novembre 202x.",
+      "formattedText": [
+        {
+          "text": "Nous vous informons que les disponibilités des trains panoramiques pour la prochaine saison "
+        },
+        {
+          "text": "202x/202x",
+          "bold": true
+        },
+        {
+          "text": " ne sont pas encore chargées dans le système. Les réservations de places devraient être disponibles à partir de fin octobre/début novembre "
+        },
+        {
+          "text": "202x",
+          "bold": true
+        },
+        {
+          "text": "."
+        }
+      ]
     },
     {
       "id": "rail-seat-reservation-reservation-for-next-season-22-en",
@@ -1086,7 +1148,26 @@
       "language": "EN",
       "languageLabel": "English",
       "weight": 0,
-      "text": "We would like to inform you that the availability of the panorama trains for the coming 202x/202x season is not yet stored in the system. Seat reservations are expected to be possible from the end of October/beginning of November 202x."
+      "text": "We would like to inform you that the availability of the panorama trains for the coming 202x/202x season is not yet stored in the system. Seat reservations are expected to be possible from the end of October/beginning of November 202x.",
+      "formattedText": [
+        {
+          "text": "We would like to inform you that the availability of the panorama trains for the coming"
+        },
+        {
+          "text": " 202x/202x",
+          "bold": true
+        },
+        {
+          "text": " season is not yet stored in the system. Seat reservations are expected to be possible from the end of October/beginning of November "
+        },
+        {
+          "text": "202x",
+          "bold": true
+        },
+        {
+          "text": "."
+        }
+      ]
     },
     {
       "id": "rail-seat-reservation-reservation-for-next-season-22-it",
@@ -1099,7 +1180,26 @@
       "language": "IT",
       "languageLabel": "Italian",
       "weight": 0,
-      "text": "Desideriamo informarvi che la disponibilità dei treni panoramici per la prossima stagione 202x/202x non è ancora stata inserita nel sistema. La prenotazione dei posti sarà presumibilmente possibile a partire dalla fine di ottobre/inizio novembre 202x."
+      "text": "Desideriamo informarvi che la disponibilità dei treni panoramici per la prossima stagione 202x/202x non è ancora stata inserita nel sistema. La prenotazione dei posti sarà presumibilmente possibile a partire dalla fine di ottobre/inizio novembre 202x.",
+      "formattedText": [
+        {
+          "text": "Desideriamo informarvi che la disponibilità dei treni panoramici per la prossima stagione "
+        },
+        {
+          "text": "202x/202x",
+          "bold": true
+        },
+        {
+          "text": " non è ancora stata inserita nel sistema. La prenotazione dei posti sarà presumibilmente possibile a partire dalla fine di ottobre/inizio novembre "
+        },
+        {
+          "text": "202x",
+          "bold": true
+        },
+        {
+          "text": "."
+        }
+      ]
     },
     {
       "id": "rail-seat-reservation-reservation-bex-bus-still-open-rest-is-confirmed-23-de",
@@ -1112,7 +1212,16 @@
       "language": "DE",
       "languageLabel": "German",
       "weight": 0,
-      "text": "Momenten ist die Strecke des Bernina Express Bus (Tirano–Lugano oder Lugano-Tirano) nicht reservierbar. Ihre Reise auf dieser Strecke ist jedoch in jedem Fall gewährleistet – entweder wie vorgesehen mit dem Bernina Express Bus oder alternativ per Zug via Monza entlang des schönen Comer Sees. Die Sitzplätze in den übrigen Panoramazügen sind bereits definitiv für Sie reserviert."
+      "text": "Momenten ist die Strecke des Bernina Express Bus (Tirano–Lugano oder Lugano-Tirano) nicht reservierbar. Ihre Reise auf dieser Strecke ist jedoch in jedem Fall gewährleistet – entweder wie vorgesehen mit dem Bernina Express Bus oder alternativ per Zug via Monza entlang des schönen Comer Sees. Die Sitzplätze in den übrigen Panoramazügen sind bereits definitiv für Sie reserviert.",
+      "formattedText": [
+        {
+          "text": "Momenten ist die Strecke des Bernina Express Bus (Tirano–Lugano oder Lugano-Tirano) nicht reservierbar. Ihre Reise auf dieser Strecke ist jedoch in jedem Fall gewährleistet – entweder wie vorgesehen mit dem Bernina Express Bus oder alternativ per Zug via Monza entlang des schönen Comer Sees. "
+        },
+        {
+          "text": "Die Sitzplätze in den übrigen Panoramazügen sind bereits definitiv für Sie reserviert.",
+          "bold": true
+        }
+      ]
     },
     {
       "id": "rail-seat-reservation-reservation-bex-bus-still-open-rest-is-confirmed-23-fr",
@@ -1125,7 +1234,16 @@
       "language": "FR",
       "languageLabel": "French",
       "weight": 0,
-      "text": "Actuellement, le trajet du Bernina Express Bus (Tirano–Lugano ou Lugano–Tirano) n’est pas réservable. Votre voyage sur ce tronçon est toutefois garanti – soit comme prévu avec le bus Bernina Express, soit en train via Monza le long du magnifique lac de Côme. Les places dans les autres trains panoramiques sont déjà définitivement réservées pour vous."
+      "text": "Actuellement, le trajet du Bernina Express Bus (Tirano–Lugano ou Lugano–Tirano) n’est pas réservable. Votre voyage sur ce tronçon est toutefois garanti – soit comme prévu avec le bus Bernina Express, soit en train via Monza le long du magnifique lac de Côme. Les places dans les autres trains panoramiques sont déjà définitivement réservées pour vous.",
+      "formattedText": [
+        {
+          "text": "Actuellement, le trajet du Bernina Express Bus (Tirano–Lugano ou Lugano–Tirano) n’est pas réservable. Votre voyage sur ce tronçon est toutefois garanti – soit comme prévu avec le bus Bernina Express, soit en train via Monza le long du magnifique lac de Côme. "
+        },
+        {
+          "text": "Les places dans les autres trains panoramiques sont déjà définitivement réservées pour vous.",
+          "bold": true
+        }
+      ]
     },
     {
       "id": "rail-seat-reservation-reservation-bex-bus-still-open-rest-is-confirmed-23-en",
@@ -1138,7 +1256,16 @@
       "language": "EN",
       "languageLabel": "English",
       "weight": 0,
-      "text": "At the moment, the Bernina Express Bus route (Tirano–Lugano or Lugano–Tirano) cannot be booked. However, your journey on this section is fully guaranteed – either as planned on the Bernina Express bus or alternatively by train via Monza along the beautiful Lake Como. Seats on the other panoramic trains are already firmly reserved for you."
+      "text": "At the moment, the Bernina Express Bus route (Tirano–Lugano or Lugano–Tirano) cannot be booked. However, your journey on this section is fully guaranteed – either as planned on the Bernina Express bus or alternatively by train via Monza along the beautiful Lake Como. Seats on the other panoramic trains are already firmly reserved for you.",
+      "formattedText": [
+        {
+          "text": "At the moment, the Bernina Express Bus route (Tirano–Lugano or Lugano–Tirano) cannot be booked. However, your journey on this section is fully guaranteed – either as planned on the Bernina Express bus or alternatively by train via Monza along the beautiful Lake Como. "
+        },
+        {
+          "text": "Seats on the other panoramic trains are already firmly reserved for you.",
+          "bold": true
+        }
+      ]
     },
     {
       "id": "rail-seat-reservation-reservation-bex-bus-still-open-rest-is-confirmed-23-it",
@@ -1151,7 +1278,16 @@
       "language": "IT",
       "languageLabel": "Italian",
       "weight": 0,
-      "text": "Al momento la tratta del Bernina Express Bus (Tirano–Lugano o Lugano–Tirano) non è prenotabile. Il vostro viaggio su questa tratta è comunque garantito – come previsto con il Bernina Express Bus oppure in treno via Monza lungo il bellissimo Lago di Como. I posti sugli altri treni panoramici sono già definitivamente prenotati per voi."
+      "text": "Al momento la tratta del Bernina Express Bus (Tirano–Lugano o Lugano–Tirano) non è prenotabile. Il vostro viaggio su questa tratta è comunque garantito – come previsto con il Bernina Express Bus oppure in treno via Monza lungo il bellissimo Lago di Como. I posti sugli altri treni panoramici sono già definitivamente prenotati per voi.",
+      "formattedText": [
+        {
+          "text": "Al momento la tratta del Bernina Express Bus (Tirano–Lugano o Lugano–Tirano) non è prenotabile. Il vostro viaggio su questa tratta è comunque garantito – come previsto con il Bernina Express Bus oppure in treno via Monza lungo il bellissimo Lago di Como. "
+        },
+        {
+          "text": "I posti sugli altri treni panoramici sono già definitivamente prenotati per voi.",
+          "bold": true
+        }
+      ]
     },
     {
       "id": "rail-seat-reservation-train-journeys-without-seat-reservations-24-de",
@@ -1268,7 +1404,19 @@
       "language": "DE",
       "languageLabel": "German",
       "weight": 0,
-      "text": "Haben Sie noch Fragen zu Ihrer Bahnreise? Auf unserer Webseite finden Sie alle Informationen dazu.\n\nHier finden Sie ausserdem unsere allgemeinen Vertragsbedingungen.  -> https://switzerlandtravelcentre.com/de-ch/agb\n\nWenn Sie weitere Fragen haben, zögern Sie bitte nicht, uns zu kontaktieren.\n\nWir wünschen Ihnen schon jetzt eine gute Reise."
+      "text": "Haben Sie noch Fragen zu Ihrer Bahnreise? Auf unserer Webseite finden Sie alle Informationen dazu.\n\nHier finden Sie ausserdem unsere allgemeinen Vertragsbedingungen.  -> https://switzerlandtravelcentre.com/de-ch/agb\n\nWenn Sie weitere Fragen haben, zögern Sie bitte nicht, uns zu kontaktieren.\n\nWir wünschen Ihnen schon jetzt eine gute Reise.",
+      "formattedText": [
+        {
+          "text": "Haben Sie noch Fragen zu Ihrer Bahnreise? Auf unserer Webseite finden Sie alle Informationen dazu.\n\n"
+        },
+        {
+          "text": "Hier",
+          "highlight": "required"
+        },
+        {
+          "text": " finden Sie ausserdem unsere allgemeinen Vertragsbedingungen.  -> https://switzerlandtravelcentre.com/de-ch/agb\n\nWenn Sie weitere Fragen haben, zögern Sie bitte nicht, uns zu kontaktieren.\n\nWir wünschen Ihnen schon jetzt eine gute Reise."
+        }
+      ]
     },
     {
       "id": "rail-farewell-e-mail-questions-gtc-etc-26-fr",
@@ -1281,7 +1429,19 @@
       "language": "FR",
       "languageLabel": "French",
       "weight": 0,
-      "text": "Avez-vous encore des questions concernant votre voyage en train ?\nVous trouverez toutes les informations à ce sujet sur notre site Internet.\n\nVous trouverez également ici nos conditions générales de contrat. -> https://switzerlandtravelcentre.com/fr-ch/ccg\n\nSi vous avez d’autres questions, n’hésitez pas à nous contacter.\n\nNous vous souhaitons d’ores et déjà un bon voyage."
+      "text": "Avez-vous encore des questions concernant votre voyage en train ?\nVous trouverez toutes les informations à ce sujet sur notre site Internet.\n\nVous trouverez également ici nos conditions générales de contrat. -> https://switzerlandtravelcentre.com/fr-ch/ccg\n\nSi vous avez d’autres questions, n’hésitez pas à nous contacter.\n\nNous vous souhaitons d’ores et déjà un bon voyage.",
+      "formattedText": [
+        {
+          "text": "Avez-vous encore des questions concernant votre voyage en train ?\nVous trouverez toutes les informations à ce sujet sur notre site Internet.\n\nVous trouverez également "
+        },
+        {
+          "text": "ici",
+          "highlight": "required"
+        },
+        {
+          "text": " nos conditions générales de contrat. -> https://switzerlandtravelcentre.com/fr-ch/ccg\n\nSi vous avez d’autres questions, n’hésitez pas à nous contacter.\n\nNous vous souhaitons d’ores et déjà un bon voyage."
+        }
+      ]
     },
     {
       "id": "rail-farewell-e-mail-questions-gtc-etc-26-en",
@@ -1294,7 +1454,19 @@
       "language": "EN",
       "languageLabel": "English",
       "weight": 0,
-      "text": "Do you still have questions regarding your train journey?\nYou will find all the information on our website.\n\nYou will also find our general terms and conditions here. -> https://switzerlandtravelcentre.com/en-ch/gtc\n\nIf you have any further questions, please do not hesitate to contact us.\n\nWe already wish you a pleasant journey."
+      "text": "Do you still have questions regarding your train journey?\nYou will find all the information on our website.\n\nYou will also find our general terms and conditions here. -> https://switzerlandtravelcentre.com/en-ch/gtc\n\nIf you have any further questions, please do not hesitate to contact us.\n\nWe already wish you a pleasant journey.",
+      "formattedText": [
+        {
+          "text": "Do you still have questions regarding your train journey?\nYou will find all the information on our website.\n\nYou will also find our general terms and conditions "
+        },
+        {
+          "text": "here",
+          "highlight": "required"
+        },
+        {
+          "text": ". -> https://switzerlandtravelcentre.com/en-ch/gtc\n\nIf you have any further questions, please do not hesitate to contact us.\n\nWe already wish you a pleasant journey."
+        }
+      ]
     },
     {
       "id": "rail-farewell-e-mail-questions-gtc-etc-26-it",
@@ -1307,7 +1479,19 @@
       "language": "IT",
       "languageLabel": "Italian",
       "weight": 0,
-      "text": "Ha ancora domande riguardo al suo viaggio in treno?\nTroverà tutte le informazioni sul nostro sito web.\n\nQui troverà anche le nostre condizioni generali di contratto. -> https://switzerlandtravelcentre.com/it-ch/cgc\n\nSe ha ulteriori domande, non esiti a contattarci.\n\nLe auguriamo sin d’ora un buon viaggio."
+      "text": "Ha ancora domande riguardo al suo viaggio in treno?\nTroverà tutte le informazioni sul nostro sito web.\n\nQui troverà anche le nostre condizioni generali di contratto. -> https://switzerlandtravelcentre.com/it-ch/cgc\n\nSe ha ulteriori domande, non esiti a contattarci.\n\nLe auguriamo sin d’ora un buon viaggio.",
+      "formattedText": [
+        {
+          "text": "Ha ancora domande riguardo al suo viaggio in treno?\nTroverà tutte le informazioni sul nostro sito web.\n\n"
+        },
+        {
+          "text": "Qui",
+          "highlight": "required"
+        },
+        {
+          "text": " troverà anche le nostre condizioni generali di contratto. -> https://switzerlandtravelcentre.com/it-ch/cgc\n\nSe ha ulteriori domande, non esiti a contattarci.\n\nLe auguriamo sin d’ora un buon viaggio."
+        }
+      ]
     },
     {
       "id": "rail-hotel-bookings-booking-without-hotel-27-de",
@@ -1320,7 +1504,19 @@
       "language": "DE",
       "languageLabel": "German",
       "weight": 0,
-      "text": "Wir sind eine Agentur, die Reisen einschliesslich Zugtickets und Übernachtungen in der Schweiz organisiert. Aus diesem Grund ist in alle unsere Pakete mindestens eine Übernachtung inkludiert.                                                                  Falls Sie nur Bahntickets ohne Hotelübernachtung buchen möchten, empfehlen wir Ihnen, sich direkt an die jeweilige Eisenbahngesellschaft zu wenden – in diesem Fall den Glacier Express.\n\nWir hoffen, diese Informationen sind hilfreich. Sollten Sie sich für eine Reise mit Übernachtung entscheiden, unterstützen wir Sie gerne bei der Planung und Buchung."
+      "text": "Wir sind eine Agentur, die Reisen einschliesslich Zugtickets und Übernachtungen in der Schweiz organisiert. Aus diesem Grund ist in alle unsere Pakete mindestens eine Übernachtung inkludiert.                                                                  Falls Sie nur Bahntickets ohne Hotelübernachtung buchen möchten, empfehlen wir Ihnen, sich direkt an die jeweilige Eisenbahngesellschaft zu wenden – in diesem Fall den Glacier Express.\n\nWir hoffen, diese Informationen sind hilfreich. Sollten Sie sich für eine Reise mit Übernachtung entscheiden, unterstützen wir Sie gerne bei der Planung und Buchung.",
+      "formattedText": [
+        {
+          "text": "Wir sind eine Agentur, die Reisen einschliesslich Zugtickets und Übernachtungen in der Schweiz organisiert. Aus diesem Grund ist in alle unsere Pakete mindestens eine Übernachtung inkludiert.                                                                  Falls Sie nur Bahntickets ohne Hotelübernachtung buchen möchten, empfehlen wir Ihnen, sich direkt an die jeweilige Eisenbahngesellschaft zu wenden – in diesem Fall den"
+        },
+        {
+          "text": " Glacier Express",
+          "highlight": "required"
+        },
+        {
+          "text": ".\n\nWir hoffen, diese Informationen sind hilfreich. Sollten Sie sich für eine Reise mit Übernachtung entscheiden, unterstützen wir Sie gerne bei der Planung und Buchung."
+        }
+      ]
     },
     {
       "id": "rail-hotel-bookings-booking-without-hotel-27-fr",
@@ -1333,7 +1529,19 @@
       "language": "FR",
       "languageLabel": "French",
       "weight": 0,
-      "text": "Nous sommes une agence qui organise des voyages, y compris les billets de train et les nuitées en Suisse. C'est pourquoi tous nos forfaits comprennent au moins une nuitée. Si vous souhaitez réserver uniquement des billets de train sans nuitée à l'hôtel, nous vous recommandons de vous adresser directement à la compagnie ferroviaire concernée - en l'occurrence le Glacier Express.\n\nNous espérons que ces informations vous seront utiles. Si vous décidez de voyager avec une nuitée, nous serons heureux de vous aider à planifier et à réserver votre voyage."
+      "text": "Nous sommes une agence qui organise des voyages, y compris les billets de train et les nuitées en Suisse. C'est pourquoi tous nos forfaits comprennent au moins une nuitée. Si vous souhaitez réserver uniquement des billets de train sans nuitée à l'hôtel, nous vous recommandons de vous adresser directement à la compagnie ferroviaire concernée - en l'occurrence le Glacier Express.\n\nNous espérons que ces informations vous seront utiles. Si vous décidez de voyager avec une nuitée, nous serons heureux de vous aider à planifier et à réserver votre voyage.",
+      "formattedText": [
+        {
+          "text": "Nous sommes une agence qui organise des voyages, y compris les billets de train et les nuitées en Suisse. C'est pourquoi tous nos forfaits comprennent au moins une nuitée. Si vous souhaitez réserver uniquement des billets de train sans nuitée à l'hôtel, nous vous recommandons de vous adresser directement à la compagnie ferroviaire concernée - en l'occurrence"
+        },
+        {
+          "text": " le Glacier Express.\n",
+          "highlight": "required"
+        },
+        {
+          "text": "\nNous espérons que ces informations vous seront utiles. Si vous décidez de voyager avec une nuitée, nous serons heureux de vous aider à planifier et à réserver votre voyage."
+        }
+      ]
     },
     {
       "id": "rail-hotel-bookings-booking-without-hotel-27-en",
@@ -1346,7 +1554,19 @@
       "language": "EN",
       "languageLabel": "English",
       "weight": 0,
-      "text": "We are an agency that organizes trips including train tickets and accommodation in Switzerland. For this reason, all our packages include at least one night's accommodation. If you only want to book train tickets without hotel accommodation, we recommend that you contact the respective railway company directly – in this case, the Glacier Express.\n\nWe hope this information is helpful. If you decide to book a trip with overnight accommodation, we will be happy to assist you with planning and booking."
+      "text": "We are an agency that organizes trips including train tickets and accommodation in Switzerland. For this reason, all our packages include at least one night's accommodation. If you only want to book train tickets without hotel accommodation, we recommend that you contact the respective railway company directly – in this case, the Glacier Express.\n\nWe hope this information is helpful. If you decide to book a trip with overnight accommodation, we will be happy to assist you with planning and booking.",
+      "formattedText": [
+        {
+          "text": "We are an agency that organizes trips including train tickets and accommodation in Switzerland. For this reason, all our packages include at least one night's accommodation. If you only want to book train tickets without hotel accommodation, we recommend that you contact the respective railway company directly – in this case, the "
+        },
+        {
+          "text": "Glacier Express.",
+          "highlight": "required"
+        },
+        {
+          "text": "\n\nWe hope this information is helpful. If you decide to book a trip with overnight accommodation, we will be happy to assist you with planning and booking."
+        }
+      ]
     },
     {
       "id": "rail-hotel-bookings-booking-without-hotel-27-it",
@@ -1359,7 +1579,19 @@
       "language": "IT",
       "languageLabel": "Italian",
       "weight": 0,
-      "text": "Siamo un'agenzia che organizza viaggi in Svizzera, compresi biglietti ferroviari e pernottamenti. Per questo motivo, tutti i nostri pacchetti includono almeno un pernottamento. Se desiderate prenotare solo i biglietti ferroviari senza pernottamento in hotel, vi consigliamo di rivolgervi direttamente alla compagnia ferroviaria interessata, in questo caso la Glacier Express.\n\nSperiamo che queste informazioni vi siano utili. Se decidete di intraprendere un viaggio con pernottamento, saremo lieti di aiutarvi nella pianificazione e nella prenotazione."
+      "text": "Siamo un'agenzia che organizza viaggi in Svizzera, compresi biglietti ferroviari e pernottamenti. Per questo motivo, tutti i nostri pacchetti includono almeno un pernottamento. Se desiderate prenotare solo i biglietti ferroviari senza pernottamento in hotel, vi consigliamo di rivolgervi direttamente alla compagnia ferroviaria interessata, in questo caso la Glacier Express.\n\nSperiamo che queste informazioni vi siano utili. Se decidete di intraprendere un viaggio con pernottamento, saremo lieti di aiutarvi nella pianificazione e nella prenotazione.",
+      "formattedText": [
+        {
+          "text": "Siamo un'agenzia che organizza viaggi in Svizzera, compresi biglietti ferroviari e pernottamenti. Per questo motivo, tutti i nostri pacchetti includono almeno un pernottamento. Se desiderate prenotare solo i biglietti ferroviari senza pernottamento in hotel, vi consigliamo di rivolgervi direttamente alla compagnia ferroviaria interessata, in questo caso la "
+        },
+        {
+          "text": "Glacier Express",
+          "highlight": "required"
+        },
+        {
+          "text": ".\n\nSperiamo che queste informazioni vi siano utili. Se decidete di intraprendere un viaggio con pernottamento, saremo lieti di aiutarvi nella pianificazione e nella prenotazione."
+        }
+      ]
     },
     {
       "id": "rail-hotel-bookings-bookings-with-too-few-hotels-28-de",
@@ -1528,7 +1760,84 @@
       "language": "DE",
       "languageLabel": "German",
       "weight": 0,
-      "text": "Grüezi\n\nVielen Dank für Ihre Anfrage und Ihr Interesse an unseren Angeboten. Es freut uns sehr, Sie bei der Planung Ihrer Ferien in der Schweiz unterstützen zu dürfen.\n\nÜber den folgenden Link können Sie Ihr persönliches Reiseprogramm bequem einsehen: Link\n\nInkludierte Leistungen:\n•\tBahnfahrten Wohnort – St. Moritz und Zermatt – Wohnort in 2. Klasse\n•\tBahnfahrt Glacier Express (St. Moritz – Zermatt) in 1. Klasse\n•\tSitzplatzreservation Glacier Express\n•\tHotelübernachtungen inkl. Frühstück\n\nNicht inkludiert:\n•\tKurtaxen\n\nWarum bei uns buchen?\nAls spezialisierter Anbieter für Schweiz-Reisen stellen wir für Sie sorgfältig abgestimmte Reiseprogramme zusammen – perfekt organisiert und individuell auf Ihre Wünsche zugeschnitten. So profitieren Sie von einer einfachen, zuverlässigen und professionellen Reiseplanung aus einer Hand.\n\nSichern Sie sich jetzt Ihr Wunschprogramm\nIhr aktuelles Angebot wurde individuell für Sie zusammengestellt und basiert auf den derzeit verfügbaren Kontingenten. Besonders gefragte Leistungen wie Panoramazüge und ausgewählte Hotels sind oft schnell ausgebucht. Mit einer frühzeitigen Bestätigung stellen Sie sicher, dass Ihre Reise genau wie geplant umgesetzt werden kann.\n\nSichern Sie sich Ihre Reise, indem Sie Ihre Offerte (Link) verbindlich bestätigen.\n\nBitte teilen Sie uns bis spätestens xx.xx.xxxx mit, ob das Angebot Ihren Vorstellungen entspricht.\n\nHier finden Sie ausserdem unsere allgemeinen Vertragsbedingungen (https://switzerlandtravelcentre.com/de-ch/agb) sowie Antworten auf häufige Fragen (https://switzerlandtravelcentre.com/de-ch/reiseinfos/haeufige-fragen).\n\nFalls Sie weitere Fragen haben oder Anpassungen wünschen, lassen Sie es uns einfach wissen – wir helfen Ihnen gerne weiter.\n\nWir freuen uns auf Ihre Rückmeldung und wünschen Ihnen einen schönen Tag.\n\nFreundliche Grüsse"
+      "text": "Grüezi\n\nVielen Dank für Ihre Anfrage und Ihr Interesse an unseren Angeboten. Es freut uns sehr, Sie bei der Planung Ihrer Ferien in der Schweiz unterstützen zu dürfen.\n\nÜber den folgenden Link können Sie Ihr persönliches Reiseprogramm bequem einsehen: Link\n\nInkludierte Leistungen:\n\n•\tAn- und Rückreise ab/bis zu Ihrem Schweizer Wohnort\n•\tBahnfahrten gemäss Offerte\n•\tSitzplatzreservation Panoramazüge\n•\tHotelübernachtungen inkl. Frühstück\n\nNicht inkludiert: Kurtaxen\n\nWarum bei uns buchen?\n\nAls spezialisierter Anbieter für Schweiz-Reisen stellen wir für Sie sorgfältig abgestimmte Reiseprogramme zusammen – perfekt organisiert und individuell auf Ihre Wünsche zugeschnitten. So profitieren Sie von einer einfachen, zuverlässigen und professionellen Reiseplanung aus einer Hand.\n\nSichern Sie sich jetzt Ihr Wunschprogramm\n\nIhr aktuelles Angebot wurde individuell für Sie zusammengestellt und basiert auf den derzeit verfügbaren Kontingenten. Besonders gefragte Leistungen wie Panoramazüge und ausgewählte Hotels sind oft schnell ausgebucht. Mit einer frühzeitigen Bestätigung stellen Sie sicher, dass Ihre Reise genau wie geplant umgesetzt werden kann.\n\nSichern Sie sich Ihre Reise, indem Sie Ihre Offerte (Link) verbindlich bestätigen.\n\nBitte teilen Sie uns bis spätestens 23. April 2026 mit, ob das Angebot Ihren Vorstellungen entspricht.\n\nHier finden Sie ausserdem unsere allgemeinen Vertragsbedingungen sowie Antworten auf häufige Fragen.\n\nFalls Sie weitere Fragen haben oder Anpassungen wünschen, lassen Sie es uns einfach wissen – wir helfen Ihnen gerne weiter.\n\nWir freuen uns auf Ihre Rückmeldung und wünschen Ihnen einen schönen Tag.\n\nFreundliche Grüsse",
+      "formattedText": [
+        {
+          "text": "Grüezi\n\nVielen Dank für Ihre Anfrage und Ihr Interesse an unseren Angeboten. Es freut uns sehr, Sie bei der Planung Ihrer Ferien in der Schweiz unterstützen zu dürfen.\n\nÜber den folgenden Link können Sie Ihr persönliches Reiseprogramm bequem einsehen: "
+        },
+        {
+          "text": "Link",
+          "highlight": "required"
+        },
+        {
+          "text": "\n\n"
+        },
+        {
+          "text": "Inkludierte Leistungen:",
+          "bold": true
+        },
+        {
+          "text": "\n\n•\tAn- und Rückreise ab/bis zu Ihrem Schweizer Wohnort\n•\tBahnfahrten gemäss Offerte\n•\tSitzplatzreservation Panoramazüge\n•\tHotelübernachtungen inkl. Frühstück\n\n"
+        },
+        {
+          "text": "Nicht inkludiert:",
+          "bold": true
+        },
+        {
+          "text": " Kurtaxen\n\n"
+        },
+        {
+          "text": "Warum bei uns buchen?",
+          "bold": true
+        },
+        {
+          "text": "\n\nAls spezialisierter Anbieter für Schweiz-Reisen stellen wir für Sie sorgfältig abgestimmte Reiseprogramme zusammen – perfekt organisiert und individuell auf Ihre Wünsche zugeschnitten. So profitieren Sie von einer einfachen, zuverlässigen und professionellen Reiseplanung aus einer Hand.\n\n"
+        },
+        {
+          "text": "Sichern Sie sich jetzt Ihr Wunschprogramm",
+          "bold": true
+        },
+        {
+          "text": "\n\nIhr aktuelles Angebot wurde individuell für Sie zusammengestellt und basiert auf den derzeit verfügbaren Kontingenten. Besonders gefragte Leistungen wie Panoramazüge und ausgewählte Hotels sind oft schnell ausgebucht. Mit einer frühzeitigen Bestätigung stellen Sie sicher, dass Ihre Reise genau wie geplant umgesetzt werden kann.\n\n"
+        },
+        {
+          "text": "Sichern Sie sich Ihre Reise, indem Sie Ihre Offerte (",
+          "bold": true
+        },
+        {
+          "text": "Link",
+          "bold": true,
+          "highlight": "required"
+        },
+        {
+          "text": ") verbindlich bestätigen.",
+          "bold": true
+        },
+        {
+          "text": "\n\nBitte teilen Sie uns bis spätestens "
+        },
+        {
+          "text": "23. April 2026",
+          "highlight": "required"
+        },
+        {
+          "text": " mit, ob das Angebot Ihren Vorstellungen entspricht.\n\nHier finden Sie ausserdem unsere "
+        },
+        {
+          "text": "allgemeinen Vertragsbedingungen",
+          "href": "https://switzerlandtravelcentre.com/de-ch/agb"
+        },
+        {
+          "text": " sowie Antworten auf "
+        },
+        {
+          "text": "häufige Fragen",
+          "href": "https://switzerlandtravelcentre.com/de-ch/reiseinfos/haeufige-fragen"
+        },
+        {
+          "text": ".\n\nFalls Sie weitere Fragen haben oder Anpassungen wünschen, lassen Sie es uns einfach wissen – wir helfen Ihnen gerne weiter.\n\nWir freuen uns auf Ihre Rückmeldung und wünschen Ihnen einen schönen Tag.\n\nFreundliche Grüsse"
+        }
+      ]
     },
     {
       "id": "rail-quotes-quote-based-on-enquiry-incl-nezassa-link-31-fr",
@@ -1541,7 +1850,77 @@
       "language": "FR",
       "languageLabel": "French",
       "weight": 0,
-      "text": "Bonjour\n\nMerci beaucoup pour votre demande et pour l’intérêt que vous portez à nos offres. Nous sommes ravis de pouvoir vous accompagner dans la planification de vos vacances en Suisse.\n\nVous pouvez consulter facilement votre programme de voyage personnalisé via le lien suivant : lien\n\nServices inclues :\n•\tVoyage aller-retour depuis/vers votre lieu de résidence en Suisse ou frontière Suisse\n•\tTrajets en train comme prévu dans l’offre\n•\tRéservations de sièges sur les trains panoramiques\n•\tHébergement à l’hôtel avec petit-déjeuner inclus\n\nService exclue:\n•\tTaxe de séjour\n\nPourquoi réserver chez nous ?\nEn tant que spécialiste des voyages en Suisse, nous élaborons pour vous des programmes soigneusement conçus – parfaitement organisés et adaptés individuellement à vos souhaits. Vous bénéficiez ainsi d’une planification simple, fiable et professionnelle, auprès d’un seul interlocuteur.\n\nAssurez-vous dès maintenant votre programme personnalisé\nVotre offre a été élaborée spécialement pour vous et se base sur les disponibilités actuelles. Les prestations très demandées, telles que les trains panoramiques et certains hôtels, sont souvent rapidement complets. En confirmant votre réservation rapidement, vous vous assurez que votre voyage pourra être réalisé exactement comme prévu.\n\nRéservez votre voyage en confirmant votre offre (lien) de manière ferme.\n\nNous vous remercions de bien vouloir nous indiquer d’ici au xx.xx.xxxx au plus tard si cette offre correspond à vos attentes.\n\nVous trouverez également nos conditions générales de vente (https://switzerlandtravelcentre.com/fr-ch/ccg) ainsi que les réponses aux questions fréquentes (https://switzerlandtravelcentre.com/fr-ch/informations/questions-frequentes?utm_source=nezasa&utm_medium=email&utm_campaign=confirmation-mail).\n\nSi vous avez des questions supplémentaires ou souhaitez apporter des modifications, n’hésitez pas à nous en faire part – nous serons ravis de vous aider.\n\nNous nous réjouissons de votre retour et vous souhaitons une excellente journée.\n\nCordialement"
+      "text": "Bonjour\n\nMerci beaucoup pour votre demande et pour l’intérêt que vous portez à nos offres. Nous sommes ravis de pouvoir vous accompagner dans la planification de vos vacances en Suisse.\n\nVous pouvez consulter facilement votre programme de voyage personnalisé via le lien suivant : lien\n\nServices inclues :\n•\tVoyage aller-retour depuis/vers votre lieu de résidence en Suisse ou frontière Suisse\n•\tTrajets en train comme prévu dans l’offre\n•\tRéservations de sièges sur les trains panoramiques\n•\tHébergement à l’hôtel avec petit-déjeuner inclus\n\nService exclue:\n•\tTaxe de séjour\n\nPourquoi réserver chez nous ?\nEn tant que spécialiste des voyages en Suisse, nous élaborons pour vous des programmes soigneusement conçus – parfaitement organisés et adaptés individuellement à vos souhaits. Vous bénéficiez ainsi d’une planification simple, fiable et professionnelle, auprès d’un seul interlocuteur.\n\nAssurez-vous dès maintenant votre programme personnalisé\nVotre offre a été élaborée spécialement pour vous et se base sur les disponibilités actuelles. Les prestations très demandées, telles que les trains panoramiques et certains hôtels, sont souvent rapidement complets. En confirmant votre réservation rapidement, vous vous assurez que votre voyage pourra être réalisé exactement comme prévu.\n\nRéservez votre voyage en confirmant votre offre (lien) de manière ferme.\n\nNous vous remercions de bien vouloir nous indiquer d’ici au xx.xx.xxxx au plus tard si cette offre correspond à vos attentes.\n\nVous trouverez également nos conditions générales de vente (https://switzerlandtravelcentre.com/fr-ch/ccg) ainsi que les réponses aux questions fréquentes (https://switzerlandtravelcentre.com/fr-ch/informations/questions-frequentes?utm_source=nezasa&utm_medium=email&utm_campaign=confirmation-mail).\n\nSi vous avez des questions supplémentaires ou souhaitez apporter des modifications, n’hésitez pas à nous en faire part – nous serons ravis de vous aider.\n\nNous nous réjouissons de votre retour et vous souhaitons une excellente journée.\n\nCordialement",
+      "formattedText": [
+        {
+          "text": "Bonjour\n\nMerci beaucoup pour votre demande et pour l’intérêt que vous portez à nos offres. Nous sommes ravis de pouvoir vous accompagner dans la planification de vos vacances en Suisse.\n\nVous pouvez consulter facilement votre programme de voyage personnalisé via le lien suivant : "
+        },
+        {
+          "text": "lien\n",
+          "highlight": "required"
+        },
+        {
+          "text": "\n"
+        },
+        {
+          "text": "Services inclues :\n",
+          "bold": true
+        },
+        {
+          "text": "•\tVoyage aller-retour depuis/vers votre lieu de résidence en Suisse ou frontière Suisse\n•\tTrajets en train comme prévu dans l’offre\n•\tRéservations de sièges sur les trains panoramiques\n•\tHébergement à l’hôtel avec petit-déjeuner inclus\n\n"
+        },
+        {
+          "text": "Service exclue:\n",
+          "bold": true
+        },
+        {
+          "text": "•\tTaxe de séjour\n\n"
+        },
+        {
+          "text": "Pourquoi réserver chez nous ?\n",
+          "bold": true
+        },
+        {
+          "text": "En tant que spécialiste des voyages en Suisse, nous élaborons pour vous des programmes soigneusement conçus – parfaitement organisés et adaptés individuellement à vos souhaits. Vous bénéficiez ainsi d’une planification simple, fiable et professionnelle, auprès d’un seul interlocuteur.\n\n"
+        },
+        {
+          "text": "Assurez-vous dès maintenant votre programme personnalisé\n",
+          "bold": true
+        },
+        {
+          "text": "Votre offre a été élaborée spécialement pour vous et se base sur les disponibilités actuelles. Les prestations très demandées, telles que les trains panoramiques et certains hôtels, sont souvent rapidement complets. En confirmant votre réservation rapidement, vous vous assurez que votre voyage pourra être réalisé exactement comme prévu.\n\n"
+        },
+        {
+          "text": "Réservez votre voyage en confirmant votre offre ",
+          "bold": true
+        },
+        {
+          "text": "(lien) ",
+          "bold": true,
+          "highlight": "required"
+        },
+        {
+          "text": "de manière ferme.\n",
+          "bold": true
+        },
+        {
+          "text": "\nNous vous remercions de bien vouloir nous indiquer d’ici au xx.xx.xxxx au plus tard si cette offre correspond à vos attentes.\n\nVous trouverez également nos "
+        },
+        {
+          "text": "conditions générales de vente",
+          "href": "https://switzerlandtravelcentre.com/fr-ch/ccg"
+        },
+        {
+          "text": " ainsi que les réponses aux "
+        },
+        {
+          "text": "questions fréquentes",
+          "href": "https://switzerlandtravelcentre.com/fr-ch/informations/questions-frequentes?utm_source=nezasa&utm_medium=email&utm_campaign=confirmation-mail"
+        },
+        {
+          "text": ".\n\nSi vous avez des questions supplémentaires ou souhaitez apporter des modifications, n’hésitez pas à nous en faire part – nous serons ravis de vous aider.\n\nNous nous réjouissons de votre retour et vous souhaitons une excellente journée.\n\nCordialement"
+        }
+      ]
     },
     {
       "id": "rail-quotes-quote-based-on-enquiry-incl-nezassa-link-31-en",
@@ -1554,7 +1933,77 @@
       "language": "EN",
       "languageLabel": "English",
       "weight": 0,
-      "text": "Grüezi\n\nThank you for your enquiry and your interest in our offers. We are delighted to assist you in planning your holiday to Switzerland.\n\nYou can view your personalised travel itinerary at your convenience via the link below: Link\n\nIncluded services:\n•\tTravel to and from your Swiss place of residence / Swiss border\n•\tRail journeys as per the offer\n•\tSeat reservations on panoramic trains\n•\tHotel accommodation including breakfast\n\nExcluded services:\n•\tCity tax\n\nWhy book with us?\nAs a specialist provider of travel in Switzerland, our holidays are perfectly planned and tailored to your personal preferences.  This allows you to benefit from simple, reliable, and professional travel planning from a single source.\n\nSecure your preferred itinerary now\nYour current offer has been specially prepared for you and is based on current availability. Highly sought-after services, such as panoramic trains and selected hotels, can sell out quickly. Please reply as soon as possible to ensure that your trip can be confirmed exactly as planned.\n\nSecure your trip by confirming your offer (link).\n\nPlease let us know whether the offer meets your expectations by xx.xx.xxxx at the latest.\n\nYou can find our general terms and conditions (https://switzerlandtravelcentre.com/en-ch/gtc), as well as answers to frequently asked questions (https://switzerlandtravelcentre.com/en-ch/information/frequently-asked-questions-faqs).\n\nIf you have any further questions or would like to discuss changes to your itinerary, please do not hesitate to contact us, we are always happy to help.\n\nWe look forward to your reply and wish you a lovely day in the meantime.\n\nKind regards"
+      "text": "Grüezi\n\nThank you for your enquiry and your interest in our offers. We are delighted to assist you in planning your holiday to Switzerland.\n\nYou can view your personalised travel itinerary at your convenience via the link below: Link\n\nIncluded services:\n•\tTravel to and from your Swiss place of residence / Swiss border\n•\tRail journeys as per the offer\n•\tSeat reservations on panoramic trains\n•\tHotel accommodation including breakfast\n\nExcluded services:\n•\tCity tax\n\nWhy book with us?\nAs a specialist provider of travel in Switzerland, our holidays are perfectly planned and tailored to your personal preferences.  This allows you to benefit from simple, reliable, and professional travel planning from a single source.\n\nSecure your preferred itinerary now\nYour current offer has been specially prepared for you and is based on current availability. Highly sought-after services, such as panoramic trains and selected hotels, can sell out quickly. Please reply as soon as possible to ensure that your trip can be confirmed exactly as planned.\n\nSecure your trip by confirming your offer (link).\n\nPlease let us know whether the offer meets your expectations by xx.xx.xxxx at the latest.\n\nYou can find our general terms and conditions (https://switzerlandtravelcentre.com/en-ch/gtc), as well as answers to frequently asked questions (https://switzerlandtravelcentre.com/en-ch/information/frequently-asked-questions-faqs).\n\nIf you have any further questions or would like to discuss changes to your itinerary, please do not hesitate to contact us, we are always happy to help.\n\nWe look forward to your reply and wish you a lovely day in the meantime.\n\nKind regards",
+      "formattedText": [
+        {
+          "text": "Grüezi\n\nThank you for your enquiry and your interest in our offers. We are delighted to assist you in planning your holiday to Switzerland.\n\nYou can view your personalised travel itinerary at your convenience via the link below: "
+        },
+        {
+          "text": "Link\n",
+          "highlight": "required"
+        },
+        {
+          "text": "\n"
+        },
+        {
+          "text": "Included services:\n",
+          "bold": true
+        },
+        {
+          "text": "•\tTravel to and from your Swiss place of residence / Swiss border\n•\tRail journeys as per the offer\n•\tSeat reservations on panoramic trains\n•\tHotel accommodation including breakfast\n\n"
+        },
+        {
+          "text": "Excluded services:\n",
+          "bold": true
+        },
+        {
+          "text": "•\tCity tax\n\n"
+        },
+        {
+          "text": "Why book with us?\n",
+          "bold": true
+        },
+        {
+          "text": "As a specialist provider of travel in Switzerland, our holidays are perfectly planned and tailored to your personal preferences.  This allows you to benefit from simple, reliable, and professional travel planning from a single source.\n\n"
+        },
+        {
+          "text": "Secure your preferred itinerary now\n",
+          "bold": true
+        },
+        {
+          "text": "Your current offer has been specially prepared for you and is based on current availability. Highly sought-after services, such as panoramic trains and selected hotels, can sell out quickly. Please reply as soon as possible to ensure that your trip can be confirmed exactly as planned.\n\n"
+        },
+        {
+          "text": "Secure your trip by confirming your offer ",
+          "bold": true
+        },
+        {
+          "text": "(link)",
+          "bold": true,
+          "highlight": "required"
+        },
+        {
+          "text": ".\n",
+          "bold": true
+        },
+        {
+          "text": "\nPlease let us know whether the offer meets your expectations by xx.xx.xxxx at the latest.\n\nYou can find our "
+        },
+        {
+          "text": "general terms and conditions",
+          "href": "https://switzerlandtravelcentre.com/en-ch/gtc"
+        },
+        {
+          "text": ", as well as answers to"
+        },
+        {
+          "text": " frequently asked questions",
+          "href": "https://switzerlandtravelcentre.com/en-ch/information/frequently-asked-questions-faqs"
+        },
+        {
+          "text": ".\n\nIf you have any further questions or would like to discuss changes to your itinerary, please do not hesitate to contact us, we are always happy to help.\n\nWe look forward to your reply and wish you a lovely day in the meantime.\n\nKind regards"
+        }
+      ]
     },
     {
       "id": "rail-quotes-quote-based-on-enquiry-incl-nezassa-link-31-it",
@@ -1567,7 +2016,63 @@
       "language": "IT",
       "languageLabel": "Italian",
       "weight": 0,
-      "text": "Buongiorno\n\nGrazie mille per la sua richiesta e per l’interesse verso le nostre offerte. Siamo lieti di poterla assistere nella pianificazione della sua vacanza in Svizzera.\n\nPuò consultare comodamente il suo programma di viaggio personalizzato tramite il seguente link: link\n\nServizi inclusi:\n•\tViaggio di andata e ritorno da/verso il vostro luogo di residenza in Svizzera o al confine svizzero\n•\tViaggi in treno come previsto nell’offerta\n•\tPrenotazioni dei posti a sedere sui treni panoramici\n•\tPernottamento in hotel con colazione inclusa\n\nServizio escluso:\n•\tTassa di soggiorno\n\nPerché prenotare con noi?\nIn qualità di specialisti nei viaggi in Svizzera, elaboriamo programmi di viaggio accuratamente studiati – perfettamente organizzati e personalizzati in base ai suoi desideri. Con noi beneficia di una pianificazione semplice, affidabile e professionale, da un unico fornitore.\n\nSi assicuri subito il suo programma ideale\nLa sua offerta attuale è stata preparata appositamente per lei e si basa sulle disponibilità attuali. I servizi molto richiesti, come i treni panoramici e alcuni hotel selezionati, possono risultare al completo rapidamente. Con una conferma tempestiva, si assicura che il suo viaggio possa essere realizzato esattamente come previsto.\n\nPrenoti il suo viaggio confermando la sua oferta definitivamente (link).\n\nLa preghiamo di comunicarci entro il xx.xx.xxxx se l’offerta soddisfa le sue aspettative.\n\nQui trova inoltre le nostre condizioni generali di contratto (https://switzerlandtravelcentre.com/it-ch/cgc) nonché le risposte alle domande frequenti (https://switzerlandtravelcentre.com/it-ch/informazioni/domande-frequenti).\n\nPer qualsiasi ulteriore domanda o modifica, non esiti a contattarci – saremo lieti di assisterla.\n\nRestiamo in attesa di un suo gentile riscontro e le auguriamo una piacevole giornata.\n\nCordiali saluti"
+      "text": "Buongiorno\n\nGrazie mille per la sua richiesta e per l’interesse verso le nostre offerte. Siamo lieti di poterla assistere nella pianificazione della sua vacanza in Svizzera.\n\nPuò consultare comodamente il suo programma di viaggio personalizzato tramite il seguente link: link\n\nServizi inclusi:\n•\tViaggio di andata e ritorno da/verso il vostro luogo di residenza in Svizzera o al confine svizzero\n•\tViaggi in treno come previsto nell’offerta\n•\tPrenotazioni dei posti a sedere sui treni panoramici\n•\tPernottamento in hotel con colazione inclusa\n\nServizio escluso:\n•\tTassa di soggiorno\n\nPerché prenotare con noi?\nIn qualità di specialisti nei viaggi in Svizzera, elaboriamo programmi di viaggio accuratamente studiati – perfettamente organizzati e personalizzati in base ai suoi desideri. Con noi beneficia di una pianificazione semplice, affidabile e professionale, da un unico fornitore.\n\nSi assicuri subito il suo programma ideale\nLa sua offerta attuale è stata preparata appositamente per lei e si basa sulle disponibilità attuali. I servizi molto richiesti, come i treni panoramici e alcuni hotel selezionati, possono risultare al completo rapidamente. Con una conferma tempestiva, si assicura che il suo viaggio possa essere realizzato esattamente come previsto.\n\nPrenoti il suo viaggio confermando la sua oferta definitivamente (link).\n\nLa preghiamo di comunicarci entro il xx.xx.xxxx se l’offerta soddisfa le sue aspettative.\n\nQui trova inoltre le nostre condizioni generali di contratto (https://switzerlandtravelcentre.com/it-ch/cgc) nonché le risposte alle domande frequenti (https://switzerlandtravelcentre.com/it-ch/informazioni/domande-frequenti).\n\nPer qualsiasi ulteriore domanda o modifica, non esiti a contattarci – saremo lieti di assisterla.\n\nRestiamo in attesa di un suo gentile riscontro e le auguriamo una piacevole giornata.\n\nCordiali saluti",
+      "formattedText": [
+        {
+          "text": "Buongiorno\n\nGrazie mille per la sua richiesta e per l’interesse verso le nostre offerte. Siamo lieti di poterla assistere nella pianificazione della sua vacanza in Svizzera.\n\nPuò consultare comodamente il suo programma di viaggio personalizzato tramite il seguente link: "
+        },
+        {
+          "text": "link\n",
+          "highlight": "required"
+        },
+        {
+          "text": "\n"
+        },
+        {
+          "text": "Servizi inclusi:\n",
+          "bold": true
+        },
+        {
+          "text": "•\tViaggio di andata e ritorno da/verso il vostro luogo di residenza in Svizzera o al confine svizzero\n•\tViaggi in treno come previsto nell’offerta\n•\tPrenotazioni dei posti a sedere sui treni panoramici\n•\tPernottamento in hotel con colazione inclusa\n\n"
+        },
+        {
+          "text": "Servizio escluso:\n",
+          "bold": true
+        },
+        {
+          "text": "•\tTassa di soggiorno\n\n"
+        },
+        {
+          "text": "Perché prenotare con noi?\n",
+          "bold": true
+        },
+        {
+          "text": "In qualità di specialisti nei viaggi in Svizzera, elaboriamo programmi di viaggio accuratamente studiati – perfettamente organizzati e personalizzati in base ai suoi desideri. Con noi beneficia di una pianificazione semplice, affidabile e professionale, da un unico fornitore.\n\n"
+        },
+        {
+          "text": "Si assicuri subito il suo programma ideale\n",
+          "bold": true
+        },
+        {
+          "text": "La sua offerta attuale è stata preparata appositamente per lei e si basa sulle disponibilità attuali. I servizi molto richiesti, come i treni panoramici e alcuni hotel selezionati, possono risultare al completo rapidamente. Con una conferma tempestiva, si assicura che il suo viaggio possa essere realizzato esattamente come previsto.\n\n"
+        },
+        {
+          "text": "Prenoti il suo viaggio confermando la sua oferta definitivamente ",
+          "bold": true
+        },
+        {
+          "text": "(link)",
+          "bold": true,
+          "highlight": "required"
+        },
+        {
+          "text": ".\n",
+          "bold": true
+        },
+        {
+          "text": "\nLa preghiamo di comunicarci entro il xx.xx.xxxx se l’offerta soddisfa le sue aspettative.\n\nQui trova inoltre le nostre condizioni generali di contratto (https://switzerlandtravelcentre.com/it-ch/cgc) nonché le risposte alle domande frequenti (https://switzerlandtravelcentre.com/it-ch/informazioni/domande-frequenti).\n\nPer qualsiasi ulteriore domanda o modifica, non esiti a contattarci – saremo lieti di assisterla.\n\nRestiamo in attesa di un suo gentile riscontro e le auguriamo una piacevole giornata.\n\nCordiali saluti"
+        }
+      ]
     },
     {
       "id": "rail-quotes-missing-information-for-quote-32-de",
@@ -1580,7 +2085,12 @@
       "language": "DE",
       "languageLabel": "German",
       "weight": 0,
-      "text": "Grüezi\n\nVielen Dank für Ihre Nachricht.\n\nGerne stellen wir Ihnen wunschgemäss die Reise zusammen. Dafür benötigen wir folgende Angaben:\n\n- Genaues Reisedatum\n- Anzahl Personen (Erwachsene/Kinder inklusive Geburtsdaten)\n- Anzahl Doppel- oder Einzelzimmer\n- 3* oder 4* Hotel\n- Reise in der 1. oder 2. Klasse\n- besitzen Sie bereits eine Vergünstigung auf die Bahnreisen (Halbtax, GA, Swiss Travel Pass, etc.)\n- Budget pro Person\n- Spezial Wünsche\n- Kontaktangaben für die Offerte (Name, Vorname, Adresse, Telefonnummer)\n\nSobald wir diese Informationen erhalten, erstellen wir Ihnen gerne eine massgeschneiderte Offerte.\n\nGerne erwarten wir Ihre Rückmeldung und wünschen Ihnen einen schönen Tag.\n\nFreundliche Grüsse"
+      "text": "Grüezi\n\nVielen Dank für Ihre Nachricht.\n\nGerne stellen wir Ihnen wunschgemäss die Reise zusammen. Dafür benötigen wir folgende Angaben:\n\n•\tGenaues Reisedatum\n•\tAnzahl Personen (Erwachsene/Kinder inklusive Geburtsdaten)\n•\tAnzahl Doppel- oder Einzelzimmer\n•\t3* oder 4* Hotel\n•\tReise in der 1. oder 2. Klasse\n•\tbesitzen Sie bereits eine Vergünstigung auf die Bahnreisen (Halbtax, GA, Swiss Travel Pass, etc.)\n•\tBudget pro Person\n•\tSpezial Wünsche\n•\tKontaktangaben für die Offerte (Name, Vorname, Adresse, Telefonnummer)\n\nSobald wir diese Informationen erhalten, erstellen wir Ihnen gerne eine massgeschneiderte Offerte.\n\nGerne erwarten wir Ihre Rückmeldung und wünschen Ihnen einen schönen Tag.\n\nFreundliche Grüsse",
+      "formattedText": [
+        {
+          "text": "Grüezi\n\nVielen Dank für Ihre Nachricht.\n\nGerne stellen wir Ihnen wunschgemäss die Reise zusammen. Dafür benötigen wir folgende Angaben:\n\n•\tGenaues Reisedatum\n•\tAnzahl Personen (Erwachsene/Kinder inklusive Geburtsdaten)\n•\tAnzahl Doppel- oder Einzelzimmer\n•\t3* oder 4* Hotel\n•\tReise in der 1. oder 2. Klasse\n•\tbesitzen Sie bereits eine Vergünstigung auf die Bahnreisen (Halbtax, GA, Swiss Travel Pass, etc.)\n•\tBudget pro Person\n•\tSpezial Wünsche\n•\tKontaktangaben für die Offerte (Name, Vorname, Adresse, Telefonnummer)\n\nSobald wir diese Informationen erhalten, erstellen wir Ihnen gerne eine massgeschneiderte Offerte.\n\nGerne erwarten wir Ihre Rückmeldung und wünschen Ihnen einen schönen Tag.\n\nFreundliche Grüsse"
+        }
+      ]
     },
     {
       "id": "rail-quotes-missing-information-for-quote-32-fr",
@@ -1593,7 +2103,12 @@
       "language": "FR",
       "languageLabel": "French",
       "weight": 0,
-      "text": "Bonjour\n\nMerci de votre message.\n\nNous nous ferons un plaisir d’organiser votre voyage selon vos souhaits. Pour cela, nous avons besoin des informations suivantes :\n\n- Date exacte du voyage\n- Nombre de personnes (adultes/enfants, y compris dates de naissance)\n- Nombre de chambres doubles ou chambres simples\n- Hôtel 3* ou 4*\n- Voyage en 1e ou 2e classe\n- Au bénéfice d’une réduction sur les trajets en train (demi-tarif, AG, Swiss Travel Pass, etc.)\n- Budget par personne\n- Souhaits particuliers\n- Coordonnées pour l’offre (nom, prénom, adresse, numéro de téléphone)\n\nNous attendons volontiers votre réponse et vous souhaitons une bonne journée.\n\nMeilleures salutations"
+      "text": "Bonjour\n\nMerci de votre message.\n\nNous nous ferons un plaisir d’organiser votre voyage selon vos souhaits. Pour cela, nous avons besoin des informations suivantes :\n\n•\tDate exacte du voyage\n•\tNombre de personnes (adultes/enfants, y compris dates de naissance)\n•\tNombre de chambres doubles ou chambres simples\n•\tHôtel 3* ou 4*\n•\tVoyage en 1e ou 2e classe\n•\tAu bénéfice d’une réduction sur les trajets en train (demi-tarif, AG, Swiss Travel Pass, etc.)\n•\tBudget par personne\n•\tSouhaits particuliers\n•\tCoordonnées pour l’offre (nom, prénom, adresse, numéro de téléphone)\n\nNous attendons volontiers votre réponse et vous souhaitons une bonne journée.\n\nMeilleures salutations",
+      "formattedText": [
+        {
+          "text": "Bonjour\n\nMerci de votre message.\n\nNous nous ferons un plaisir d’organiser votre voyage selon vos souhaits. Pour cela, nous avons besoin des informations suivantes :\n\n•\tDate exacte du voyage\n•\tNombre de personnes (adultes/enfants, y compris dates de naissance)\n•\tNombre de chambres doubles ou chambres simples\n•\tHôtel 3* ou 4*\n•\tVoyage en 1e ou 2e classe\n•\tAu bénéfice d’une réduction sur les trajets en train (demi-tarif, AG, Swiss Travel Pass, etc.)\n•\tBudget par personne\n•\tSouhaits particuliers\n•\tCoordonnées pour l’offre (nom, prénom, adresse, numéro de téléphone)\n\nNous attendons volontiers votre réponse et vous souhaitons une bonne journée.\n\nMeilleures salutations"
+        }
+      ]
     },
     {
       "id": "rail-quotes-missing-information-for-quote-32-en",
@@ -1606,7 +2121,12 @@
       "language": "EN",
       "languageLabel": "English",
       "weight": 0,
-      "text": "Good morning/Good afternoon/Dear XXX\n\nThank you for your messge.\n\nThe trip can be tailored to your own requirements. Please therefore provide us with the following details:\n\n- Exact dates\n- Number of guests (adults/children including age)\n- Number of double or single rooms\n- Preferred hotel category (3* or 4*)\n- Choice of 1st or 2nd class travel(whole trip or only panoramic route)\n- GA travel card/Swiss Travel Pass or a Half-Fare travel card/Swiss Half Fare Card holder?\n- Budget per person\n- Any additional requests\n- Contact details (names, surnames, home address, e-mail address, telephone number)\n\nWe are looking forward to receiving your information.\n\nBest regards"
+      "text": "Good morning/Good afternoon/Dear XXX\n\nThank you for your messge.\n\nThe trip can be tailored to your own requirements. Please therefore provide us with the following details:\n\n•\tExact dates\n•\tNumber of guests (adults/children including age)\n•\tNumber of double or single rooms\n•\tPreferred hotel category (3* or 4*)\n•\tChoice of 1st or 2nd class travel(whole trip or only panoramic route)\n•\tGA travel card/Swiss Travel Pass or a Half-Fare travel card/Swiss Half Fare Card holder?\n•\tBudget per person\n•\tAny additional requests\n•\tContact details (names, surnames, home address, e-mail address, telephone number)\n\nWe are looking forward to receiving your information.\n\nBest regards",
+      "formattedText": [
+        {
+          "text": "Good morning/Good afternoon/Dear XXX\n\nThank you for your messge.\n\nThe trip can be tailored to your own requirements. Please therefore provide us with the following details:\n\n•\tExact dates\n•\tNumber of guests (adults/children including age)\n•\tNumber of double or single rooms\n•\tPreferred hotel category (3* or 4*)\n•\tChoice of 1st or 2nd class travel(whole trip or only panoramic route)\n•\tGA travel card/Swiss Travel Pass or a Half-Fare travel card/Swiss Half Fare Card holder?\n•\tBudget per person\n•\tAny additional requests\n•\tContact details (names, surnames, home address, e-mail address, telephone number)\n\nWe are looking forward to receiving your information.\n\nBest regards"
+        }
+      ]
     },
     {
       "id": "rail-quotes-missing-information-for-quote-32-it",
@@ -1619,7 +2139,12 @@
       "language": "IT",
       "languageLabel": "Italian",
       "weight": 0,
-      "text": "Buongiorno\n\nGrazie mille del suo messaggio.\n\nSaremo felici di mettere insieme il viaggio secondo i vostri desideri. Per questo abbiamo bisogno delle seguenti informazioni:\n\n- Data esatta del viaggio\n- Numero di persone (adulti/bambini comprese le date di nascita)\n- Numero di camere doppie o singole\n- Hotel 3* o 4*\n- Viaggio in 1a o 2a classe\n- Avete già un biglietto sconto sui viaggi in treno (metà-prezzo, AG, Swiss Travel Pass, ecc.)\n- Budget a persona\n- Richieste in particolare\n- Dati di contatto per l'offerta (cognome, nome, indirizzo, numero di telefono)\n\nIn attesa di un suo gentile riscontro Le auguriamo una buona giornata.\n\nCordiali saluti"
+      "text": "Buongiorno\n\nGrazie mille del suo messaggio.\n\nSaremo felici di mettere insieme il viaggio secondo i vostri desideri. Per questo abbiamo bisogno delle seguenti informazioni:\n\n•\tData esatta del viaggio\n•\tNumero di persone (adulti/bambini comprese le date di nascita)\n•\tNumero di camere doppie o singole\n•\tHotel 3* o 4*\n•\tViaggio in 1a o 2a classe\n•\tAvete già un biglietto sconto sui viaggi in treno (metà-prezzo, AG, Swiss Travel Pass, ecc.)\n•\tBudget a persona\n•\tRichieste in particolare\n•\tDati di contatto per l'offerta (cognome, nome, indirizzo, numero di telefono)\n\nIn attesa di un suo gentile riscontro Le auguriamo una buona giornata.\n\nCordiali saluti",
+      "formattedText": [
+        {
+          "text": "Buongiorno\n\nGrazie mille del suo messaggio.\n\nSaremo felici di mettere insieme il viaggio secondo i vostri desideri. Per questo abbiamo bisogno delle seguenti informazioni:\n\n•\tData esatta del viaggio\n•\tNumero di persone (adulti/bambini comprese le date di nascita)\n•\tNumero di camere doppie o singole\n•\tHotel 3* o 4*\n•\tViaggio in 1a o 2a classe\n•\tAvete già un biglietto sconto sui viaggi in treno (metà-prezzo, AG, Swiss Travel Pass, ecc.)\n•\tBudget a persona\n•\tRichieste in particolare\n•\tDati di contatto per l'offerta (cognome, nome, indirizzo, numero di telefono)\n\nIn attesa di un suo gentile riscontro Le auguriamo una buona giornata.\n\nCordiali saluti"
+        }
+      ]
     },
     {
       "id": "rail-quotes-quote-with-voucher-33-de",
@@ -1736,7 +2261,19 @@
       "language": "DE",
       "languageLabel": "German",
       "weight": 0,
-      "text": "Aktuell gibt es im xx Express noch viele Verfügbarkeiten."
+      "text": "Aktuell gibt es im xx Express noch viele Verfügbarkeiten.",
+      "formattedText": [
+        {
+          "text": "Aktuell"
+        },
+        {
+          "text": " ",
+          "bold": true
+        },
+        {
+          "text": "gibt es im xx Express noch viele Verfügbarkeiten."
+        }
+      ]
     },
     {
       "id": "rail-quotes-info-availability-panoramic-train-35-fr",
@@ -2009,7 +2546,7 @@
       "language": "FR",
       "languageLabel": "French",
       "weight": 0,
-      "text": "Veuillez noter que les disponibilités des trains panoramiques pour la saison xxxx/xx  à venir ne sont pas encore chargées dans le système.\nLes réservations de places assises devraient être possibles fin octobre/début novembre xxxx."
+      "text": "\"Veuillez noter que les disponibilités des trains panoramiques pour la saison xxxx/xx  à venir ne sont pas encore chargées dans le système.\nLes réservations de places assises devraient être possibles fin octobre/début novembre xxxx.\""
     },
     {
       "id": "rail-quotes-info-availability-panoramic-train-not-possible-to-book-yet-40-en",
@@ -2035,7 +2572,7 @@
       "language": "IT",
       "languageLabel": "Italian",
       "weight": 0,
-      "text": "Si prega di notare che le disponibilità dei treni panoramici per la prossima stagione xxxx/xx non sono ancora caricate nel sistema.\nLe prenotazioni dei posti saranno probabilmente disponibili a fine ottobre/inizio novembre xxxx."
+      "text": "\"Si prega di notare che le disponibilità dei treni panoramici per la prossima stagione xxxx/xx non sono ancora caricate nel sistema.\nLe prenotazioni dei posti saranno probabilmente disponibili a fine ottobre/inizio novembre xxxx.\""
     },
     {
       "id": "rail-quotes-info-availability-panoramic-train-only-aisle-seats-left-41-de",
@@ -2204,7 +2741,12 @@
       "language": "DE",
       "languageLabel": "German",
       "weight": 0,
-      "text": "Damit wir die Reise für Sie definitiv Buchen können benötigen wir noch folgende Angaben aller Reisenden:\n\n- Name und Vorname\n- Geburtsdatum (TT/MM/JJJJ)\n- Wohnsitzland\n- eine Wohnadresse und Telefonnummer\n\nSobald wir diese Informationen erhalten, kümmern wir uns gerne um die Buchung. Bei Fragen stehen wir Ihnen jederzeit zur Verfügung."
+      "text": "Damit wir die Reise für Sie definitiv Buchen können benötigen wir noch folgende Angaben aller Reisenden:\n\n•\tName und Vorname\n•\tGeburtsdatum (TT/MM/JJJJ)\n•\tWohnsitzland\n•\teine Wohnadresse und Telefonnummer\n\nSobald wir diese Informationen erhalten, kümmern wir uns gerne um die Buchung. Bei Fragen stehen wir Ihnen jederzeit zur Verfügung.",
+      "formattedText": [
+        {
+          "text": "Damit wir die Reise für Sie definitiv Buchen können benötigen wir noch folgende Angaben aller Reisenden:\n\n•\tName und Vorname\n•\tGeburtsdatum (TT/MM/JJJJ)\n•\tWohnsitzland\n•\teine Wohnadresse und Telefonnummer\n\nSobald wir diese Informationen erhalten, kümmern wir uns gerne um die Buchung. Bei Fragen stehen wir Ihnen jederzeit zur Verfügung."
+        }
+      ]
     },
     {
       "id": "rail-quotes-further-details-required-for-booking-44-fr",
@@ -2672,7 +3214,12 @@
       "language": "DE",
       "languageLabel": "German",
       "weight": 0,
-      "text": "Wir haben das Hotel XX für Sie reserviert und Ihren Gutschein an die Buchung angerechnet. Es ist noch ein Restbetrag von CHF xx offen, welchen Sie über den anschliessenden sicheren Zahlungslink begleichen können. Wir bitten Sie, den verbleibenden Betrag bis zum XX.XX.20XX über uns auszugleichen.\n\n- Zahlungslink -"
+      "text": "Wir haben das Hotel XX für Sie reserviert und Ihren Gutschein an die Buchung angerechnet. Es ist noch ein Restbetrag von CHF xx offen, welchen Sie über den anschliessenden sicheren Zahlungslink begleichen können. Wir bitten Sie, den verbleibenden Betrag bis zum XX.XX.20XX über uns auszugleichen.\n\n•\tZahlungslink -",
+      "formattedText": [
+        {
+          "text": "Wir haben das Hotel XX für Sie reserviert und Ihren Gutschein an die Buchung angerechnet. Es ist noch ein Restbetrag von CHF xx offen, welchen Sie über den anschliessenden sicheren Zahlungslink begleichen können. Wir bitten Sie, den verbleibenden Betrag bis zum XX.XX.20XX über uns auszugleichen.\n\n•\tZahlungslink -"
+        }
+      ]
     },
     {
       "id": "voucher-outstanding-balance-53-fr",
@@ -2685,7 +3232,12 @@
       "language": "FR",
       "languageLabel": "French",
       "weight": 0,
-      "text": "Nous avons réservé l'hôtel XX pour vous et avons déduit votre bon d'achat du montant de la réservation. Il reste un solde de CHF xx à régler, que vous pouvez payer via le lien de paiement sécurisé ci-dessous. Nous vous prions de bien vouloir régler le montant restant avant le XX.XX.20XX.\n\n- Lien de paiement -"
+      "text": "Nous avons réservé l'hôtel XX pour vous et avons déduit votre bon d'achat du montant de la réservation. Il reste un solde de CHF xx à régler, que vous pouvez payer via le lien de paiement sécurisé ci-dessous. Nous vous prions de bien vouloir régler le montant restant avant le XX.XX.20XX.\n\n•\tLien de paiement -",
+      "formattedText": [
+        {
+          "text": "Nous avons réservé l'hôtel XX pour vous et avons déduit votre bon d'achat du montant de la réservation. Il reste un solde de CHF xx à régler, que vous pouvez payer via le lien de paiement sécurisé ci-dessous. Nous vous prions de bien vouloir régler le montant restant avant le XX.XX.20XX.\n\n•\tLien de paiement -"
+        }
+      ]
     },
     {
       "id": "voucher-outstanding-balance-53-en",
@@ -2698,7 +3250,12 @@
       "language": "EN",
       "languageLabel": "English",
       "weight": 0,
-      "text": "We have reserved Hotel XX for you and applied your voucher to the booking. There is a remaining balance of CHF xx, which you can pay via the secure payment link below. Please settle the remaining amount through us by XX.XX.20XX.\n\n- Payment link -"
+      "text": "We have reserved Hotel XX for you and applied your voucher to the booking. There is a remaining balance of CHF xx, which you can pay via the secure payment link below. Please settle the remaining amount through us by XX.XX.20XX.\n\n•\tPayment link -",
+      "formattedText": [
+        {
+          "text": "We have reserved Hotel XX for you and applied your voucher to the booking. There is a remaining balance of CHF xx, which you can pay via the secure payment link below. Please settle the remaining amount through us by XX.XX.20XX.\n\n•\tPayment link -"
+        }
+      ]
     },
     {
       "id": "voucher-outstanding-balance-53-it",
@@ -2711,7 +3268,12 @@
       "language": "IT",
       "languageLabel": "Italian",
       "weight": 0,
-      "text": "Abbiamo prenotato per voi l'hotel XX e abbiamo accreditato il vostro buono sulla prenotazione. Rimane ancora un saldo di CHF xx da pagare, che potete saldare tramite il seguente link di pagamento sicuro. Vi preghiamo di saldare l'importo residuo entro il XX.XX.20XX tramite noi.\n\n- Link di pagamento -"
+      "text": "Abbiamo prenotato per voi l'hotel XX e abbiamo accreditato il vostro buono sulla prenotazione. Rimane ancora un saldo di CHF xx da pagare, che potete saldare tramite il seguente link di pagamento sicuro. Vi preghiamo di saldare l'importo residuo entro il XX.XX.20XX tramite noi.\n\n•\tLink di pagamento -",
+      "formattedText": [
+        {
+          "text": "Abbiamo prenotato per voi l'hotel XX e abbiamo accreditato il vostro buono sulla prenotazione. Rimane ancora un saldo di CHF xx da pagare, che potete saldare tramite il seguente link di pagamento sicuro. Vi preghiamo di saldare l'importo residuo entro il XX.XX.20XX tramite noi.\n\n•\tLink di pagamento -"
+        }
+      ]
     },
     {
       "id": "voucher-prepaid-mail-hotel-bookings-54-de",
@@ -2880,7 +3442,19 @@
       "language": "DE",
       "languageLabel": "German",
       "weight": 0,
-      "text": "Grüezi Frau/Herr\n\nVielen Dank für Ihre E-Mail.\n\nLeider können wir keinen Gutschein mit dem angegebenen Gutscheincode xxx  finden. Darf ich Sie bitten diese Nummer nochmals zu überprüfen oder uns ein Foto Ihres Gutscheins zu senden?\n\nGerne können wir dann die Buchung vornehmen.\n\nFür den Restbetrag können wir Ihnen einen Zahlungslink (bezahlbar via Kreditkarte oder Twint) zukommen lassen.\n\nBei Fragen sind wir gerne für Sie da.\n\nFreundliche Grüsse"
+      "text": "Grüezi Frau/Herr\n\nVielen Dank für Ihre E-Mail.\n\nLeider können wir keinen Gutschein mit dem angegebenen Gutscheincode xxx  finden. Darf ich Sie bitten diese Nummer nochmals zu überprüfen oder uns ein Foto Ihres Gutscheins zu senden?\n\nGerne können wir dann die Buchung vornehmen.\n\nFür den Restbetrag können wir Ihnen einen Zahlungslink (bezahlbar via Kreditkarte oder Twint) zukommen lassen.\n\nBei Fragen sind wir gerne für Sie da.\n\nFreundliche Grüsse",
+      "formattedText": [
+        {
+          "text": "Grüezi Frau/Herr\n\nVielen Dank für Ihre E-Mail.\n\nLeider können wir keinen Gutschein mit dem angegebenen Gutscheincode "
+        },
+        {
+          "text": "xxx",
+          "highlight": "required"
+        },
+        {
+          "text": "  finden. Darf ich Sie bitten diese Nummer nochmals zu überprüfen oder uns ein Foto Ihres Gutscheins zu senden?\n\nGerne können wir dann die Buchung vornehmen.\n\nFür den Restbetrag können wir Ihnen einen Zahlungslink (bezahlbar via Kreditkarte oder Twint) zukommen lassen.\n\nBei Fragen sind wir gerne für Sie da.\n\nFreundliche Grüsse"
+        }
+      ]
     },
     {
       "id": "voucher-code-not-found-57-fr",
@@ -2984,7 +3558,12 @@
       "language": "DE",
       "languageLabel": "German",
       "weight": 0,
-      "text": "Wir bitten Sie, den Betrag bis zum xx.xx.20xx über anschliessenden Zahlungslink zu begleichen. Über den Link können Sie direkt mit Ihrer Kreditkarte, Twint oder PostFinance Card bezahlen.\n\n- Zahlungslink -"
+      "text": "Wir bitten Sie, den Betrag bis zum xx.xx.20xx über anschliessenden Zahlungslink zu begleichen. Über den Link können Sie direkt mit Ihrer Kreditkarte, Twint oder PostFinance Card bezahlen.\n\n•\tZahlungslink -",
+      "formattedText": [
+        {
+          "text": "Wir bitten Sie, den Betrag bis zum xx.xx.20xx über anschliessenden Zahlungslink zu begleichen. Über den Link können Sie direkt mit Ihrer Kreditkarte, Twint oder PostFinance Card bezahlen.\n\n•\tZahlungslink -"
+        }
+      ]
     },
     {
       "id": "payment-payment-by-payment-link-59-fr",
@@ -2997,7 +3576,12 @@
       "language": "FR",
       "languageLabel": "French",
       "weight": 0,
-      "text": "Nous vous prions de bien vouloir régler le montant avant le xx.xx.20xx via le lien de paiement ci-dessous. Ce lien vous permet de payer directement avec votre carte de crédit, Twint ou PostFinance Card.\n\n- Lien de paiement -"
+      "text": "Nous vous prions de bien vouloir régler le montant avant le xx.xx.20xx via le lien de paiement ci-dessous. Ce lien vous permet de payer directement avec votre carte de crédit, Twint ou PostFinance Card.\n\n•\tLien de paiement -",
+      "formattedText": [
+        {
+          "text": "Nous vous prions de bien vouloir régler le montant avant le xx.xx.20xx via le lien de paiement ci-dessous. Ce lien vous permet de payer directement avec votre carte de crédit, Twint ou PostFinance Card.\n\n•\tLien de paiement -"
+        }
+      ]
     },
     {
       "id": "payment-payment-by-payment-link-59-en",
@@ -3010,7 +3594,12 @@
       "language": "EN",
       "languageLabel": "English",
       "weight": 0,
-      "text": "We kindly ask you to pay the amount by xx.xx.20xx using the payment link below. You can use the link to pay directly with your credit card, Twint, or PostFinance Card.\n\n- Payment link -"
+      "text": "We kindly ask you to pay the amount by xx.xx.20xx using the payment link below. You can use the link to pay directly with your credit card, Twint, or PostFinance Card.\n\n•\tPayment link -",
+      "formattedText": [
+        {
+          "text": "We kindly ask you to pay the amount by xx.xx.20xx using the payment link below. You can use the link to pay directly with your credit card, Twint, or PostFinance Card.\n\n•\tPayment link -"
+        }
+      ]
     },
     {
       "id": "payment-payment-by-payment-link-59-it",
@@ -3023,7 +3612,12 @@
       "language": "IT",
       "languageLabel": "Italian",
       "weight": 0,
-      "text": "Vi preghiamo di saldare l'importo entro il xx.xx.20xx tramite il link di pagamento allegato. Tramite il link potete pagare direttamente con la vostra carta di credito, Twint o PostFinance Card.\n\n- Link di pagamento -"
+      "text": "Vi preghiamo di saldare l'importo entro il xx.xx.20xx tramite il link di pagamento allegato. Tramite il link potete pagare direttamente con la vostra carta di credito, Twint o PostFinance Card.\n\n•\tLink di pagamento -",
+      "formattedText": [
+        {
+          "text": "Vi preghiamo di saldare l'importo entro il xx.xx.20xx tramite il link di pagamento allegato. Tramite il link potete pagare direttamente con la vostra carta di credito, Twint o PostFinance Card.\n\n•\tLink di pagamento -"
+        }
+      ]
     },
     {
       "id": "payment-payment-by-bank-transfer-60-de",
@@ -3088,7 +3682,12 @@
       "language": "DE",
       "languageLabel": "German",
       "weight": 0,
-      "text": "Da wir bisher keinen Zahlungseingang für den Restbetrag von CHF xx.xx festgestellt haben, bitten wir Sie höflich um die Begleichung über den folgenden Link bis spätestens am xx.xx.xxxx:\n\n- Zahlungslink -"
+      "text": "Da wir bisher keinen Zahlungseingang für den Restbetrag von CHF xx.xx festgestellt haben, bitten wir Sie höflich um die Begleichung über den folgenden Link bis spätestens am xx.xx.xxxx:\n\n•\tZahlungslink -",
+      "formattedText": [
+        {
+          "text": "Da wir bisher keinen Zahlungseingang für den Restbetrag von CHF xx.xx festgestellt haben, bitten wir Sie höflich um die Begleichung über den folgenden Link bis spätestens am xx.xx.xxxx:\n\n•\tZahlungslink -"
+        }
+      ]
     },
     {
       "id": "payment-reminder-payment-by-payment-link-61-fr",
@@ -3101,7 +3700,12 @@
       "language": "FR",
       "languageLabel": "French",
       "weight": 0,
-      "text": "Étant donné que nous n'avons pas encore reçu le paiement du solde de CHF xx.xx, nous vous prions de bien vouloir régler ce montant via le lien suivant au plus tard le xx.xx.xxxx :\n\n- Lien de paiement -"
+      "text": "Étant donné que nous n'avons pas encore reçu le paiement du solde de CHF xx.xx, nous vous prions de bien vouloir régler ce montant via le lien suivant au plus tard le xx.xx.xxxx :\n\n•\tLien de paiement -",
+      "formattedText": [
+        {
+          "text": "Étant donné que nous n'avons pas encore reçu le paiement du solde de CHF xx.xx, nous vous prions de bien vouloir régler ce montant via le lien suivant au plus tard le xx.xx.xxxx :\n\n•\tLien de paiement -"
+        }
+      ]
     },
     {
       "id": "payment-reminder-payment-by-payment-link-61-en",
@@ -3114,7 +3718,12 @@
       "language": "EN",
       "languageLabel": "English",
       "weight": 0,
-      "text": "As we have not yet received payment for the remaining amount of CHF xx.xx, we kindly ask you to settle the amount via the following link by xx.xx.xxxx at the latest:\n\n- Payment link -"
+      "text": "As we have not yet received payment for the remaining amount of CHF xx.xx, we kindly ask you to settle the amount via the following link by xx.xx.xxxx at the latest:\n\n•\tPayment link -",
+      "formattedText": [
+        {
+          "text": "As we have not yet received payment for the remaining amount of CHF xx.xx, we kindly ask you to settle the amount via the following link by xx.xx.xxxx at the latest:\n\n•\tPayment link -"
+        }
+      ]
     },
     {
       "id": "payment-reminder-payment-by-payment-link-61-it",
@@ -3127,7 +3736,12 @@
       "language": "IT",
       "languageLabel": "Italian",
       "weight": 0,
-      "text": "Poiché non abbiamo ancora ricevuto il pagamento del saldo di CHF xx.xx, vi preghiamo cortesemente di provvedere al saldo tramite il seguente link entro e non oltre il xx.xx.xxxx:\n\n- Link di pagamento -"
+      "text": "Poiché non abbiamo ancora ricevuto il pagamento del saldo di CHF xx.xx, vi preghiamo cortesemente di provvedere al saldo tramite il seguente link entro e non oltre il xx.xx.xxxx:\n\n•\tLink di pagamento -",
+      "formattedText": [
+        {
+          "text": "Poiché non abbiamo ancora ricevuto il pagamento del saldo di CHF xx.xx, vi preghiamo cortesemente di provvedere al saldo tramite il seguente link entro e non oltre il xx.xx.xxxx:\n\n•\tLink di pagamento -"
+        }
+      ]
     },
     {
       "id": "payment-reminder-payment-by-bank-62-de",
@@ -3754,12 +4368,12 @@
       "text": "La ringraziamo per il suo feedback positivo! Il nostro obiettivo è sempre quello di offrire ai nostri clienti il miglior servizio possibile. Ed è sempre gratificante sapere quando siamo stati in grado di raggiungere le aspettative dei nostri clienti.\n\nLe saremmo lieti se potesse raccontare ad altre persone, interessate ai viaggi, della sua esperienza con lo Switzerland Travel Centre. La sua recensione è preziosa per noi ed è d’aiuto ad altri clienti durante il processo decisionale.\n\nSegua il link sottostante per inviare la sua recensione: Lascia una recensione su Google (https://www.google.com/maps/place//data=!4m3!3m2!1s0x4790098cef0e630d:0x2743f19e8ff501a1!12e1?source=g.page.m.kd._&laa=lu-desktop-review-solicitation)\n\nLa ringraziamo ancora una volta per la sua fiducia e saremo lieti di accompagnarla nuovamente durante la pianificazione del suo prossimo viaggio con noi."
     },
     {
-      "id": "other-versicherungen-75-de",
+      "id": "other-insurance-75-de",
       "sourceItemId": "Template Outlook!75",
       "sourceSheet": "Template Outlook",
       "sourceRow": 75,
       "category": "Other",
-      "topic": "Versicherungen",
+      "topic": "Insurance",
       "usage": "",
       "language": "DE",
       "languageLabel": "German",
@@ -3767,12 +4381,12 @@
       "text": "Für den bestmöglichen Versicherungsschutz arbeiten wir seit vielen Jahren mit unserem Partner Allianz Travel zusammen.\nUnter folgendem Link finden Sie alle Informationen zu den angebotenen Versicherungen, Tarifen und Online-Abschlussmöglichkeiten: https://www.magroup-online.com/WL/TMA/CH/de?affiliateCode=WL117838824&agency=WL117838824\nBei Fragen zu den einzelnen Versicherungsleistungen oder zum Abschluss steht Ihnen unser Partner gerne direkt zur Verfügung."
     },
     {
-      "id": "other-versicherungen-75-fr",
+      "id": "other-insurance-75-fr",
       "sourceItemId": "Template Outlook!75",
       "sourceSheet": "Template Outlook",
       "sourceRow": 75,
       "category": "Other",
-      "topic": "Versicherungen",
+      "topic": "Insurance",
       "usage": "",
       "language": "FR",
       "languageLabel": "French",
@@ -3780,12 +4394,12 @@
       "text": "Pour une couverture d’assurance optimale, nous collaborons depuis de nombreuses années avec notre partenaire Allianz Travel.\nVous trouverez, via le lien suivant, toutes les informations concernant les assurances proposées, les tarifs ainsi que les possibilités de souscription en ligne: https://www.magroup-online.com/WL/TMA/CH/fr?affiliateCode=WL117838824&agency=WL117838824\nPour toute question relative aux prestations d’assurance ou à la souscription, notre partenaire se tient volontiers à votre disposition."
     },
     {
-      "id": "other-versicherungen-75-en",
+      "id": "other-insurance-75-en",
       "sourceItemId": "Template Outlook!75",
       "sourceSheet": "Template Outlook",
       "sourceRow": 75,
       "category": "Other",
-      "topic": "Versicherungen",
+      "topic": "Insurance",
       "usage": "",
       "language": "EN",
       "languageLabel": "English",
@@ -3793,12 +4407,12 @@
       "text": "For the best possible insurance coverage, we have been working for many years with our partner Allianz Travel.\nAt the following link, you will find all information about the available insurance plans, rates, and online booking options: https://www.magroup-online.com/WL/TMA/CH/en?affiliateCode=WL117838824&agency=WL117838824\nIf you have any questions about the individual insurance services or the booking process, our partner will be happy to assist you directly."
     },
     {
-      "id": "other-versicherungen-75-it",
+      "id": "other-insurance-75-it",
       "sourceItemId": "Template Outlook!75",
       "sourceSheet": "Template Outlook",
       "sourceRow": 75,
       "category": "Other",
-      "topic": "Versicherungen",
+      "topic": "Insurance",
       "usage": "",
       "language": "IT",
       "languageLabel": "Italian",

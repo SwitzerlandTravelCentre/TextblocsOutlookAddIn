@@ -20,6 +20,8 @@ LANGUAGE_COLUMNS = [
 ]
 
 PARENTHESIZED_URL_PATTERN = re.compile(r"^\s*\((https?://[^)\s]+|mailto:[^)\s]+)\)", re.IGNORECASE)
+MARKDOWN_LINK_PATTERN = re.compile(r"\[([^\]]+)\]\((https?://[^)\s]+|mailto:[^)\s]+)\)", re.IGNORECASE)
+MARKDOWN_MARKERS_PATTERN = re.compile(r"(\*\*.*?\*\*|==.*?==|\[[^\]]+\]\((?:https?://[^)\s]+|mailto:[^)\s]+)\)|(^|\n)[ \t]*-[ \t]+)", re.IGNORECASE | re.DOTALL)
 
 
 def clean_header(value):
@@ -102,43 +104,16 @@ def is_red_font(font):
     return red >= 180 and green <= 110 and blue <= 110
 
 
-def run_from_text(text, font=None, href=None):
-    run = {"text": str(text or "")}
+def sanitize_href(value):
+    if not value:
+        return None
 
-    if getattr(font, "b", False) or getattr(font, "bold", False):
-        run["bold"] = True
+    href = str(value).strip()
 
-    if is_red_font(font):
-        run["highlight"] = "required"
+    if re.match(r"^(https?://|mailto:)", href, re.IGNORECASE):
+        return href
 
-    if getattr(font, "u", None) or getattr(font, "underline", None):
-        run["underline"] = True
-
-    if href:
-        run["href"] = href
-
-    return run
-
-
-def cell_runs(cell):
-    value = cell.value
-    href = cell.hyperlink.target if cell.hyperlink and cell.hyperlink.target else None
-
-    if value is None:
-        return []
-
-    if isinstance(value, CellRichText):
-        runs = []
-
-        for item in value:
-            if isinstance(item, TextBlock):
-                runs.append(run_from_text(item.text, item.font))
-            else:
-                runs.append({"text": str(item)})
-
-        return runs
-
-    return [run_from_text(value, cell.font, href)]
+    return None
 
 
 def run_style(run):
@@ -163,6 +138,100 @@ def merge_runs(runs):
             merged.append(cleaned)
 
     return merged
+
+
+def apply_style(run, style):
+    styled = dict(run)
+
+    if style.get("bold"):
+        styled["bold"] = True
+
+    if style.get("highlight"):
+        styled["highlight"] = style["highlight"]
+
+    if style.get("href"):
+        styled["href"] = style["href"]
+
+    return styled
+
+
+def find_closing_marker(text, marker, start):
+    index = text.find(marker, start)
+
+    while index != -1:
+        if index > start:
+            return index
+
+        index = text.find(marker, index + len(marker))
+
+    return -1
+
+
+def parse_markdown_inline(text, style=None):
+    style = style or {}
+    runs = []
+    index = 0
+
+    while index < len(text):
+        if text.startswith("***", index):
+            close = find_closing_marker(text, "***", index + 3)
+
+            if close != -1:
+                nested_style = {**style, "bold": True, "highlight": "required"}
+                runs.extend(parse_markdown_inline(text[index + 3 : close], nested_style))
+                index = close + 3
+                continue
+
+        if text.startswith("**", index):
+            close = find_closing_marker(text, "**", index + 2)
+
+            if close != -1:
+                runs.extend(parse_markdown_inline(text[index + 2 : close], {**style, "bold": True}))
+                index = close + 2
+                continue
+
+        if text.startswith("==", index):
+            close = find_closing_marker(text, "==", index + 2)
+
+            if close != -1:
+                runs.extend(parse_markdown_inline(text[index + 2 : close], {**style, "highlight": "required"}))
+                index = close + 2
+                continue
+
+        if text[index] == "[":
+            match = MARKDOWN_LINK_PATTERN.match(text, index)
+
+            if match:
+                href = sanitize_href(match.group(2))
+
+                if href:
+                    runs.extend(parse_markdown_inline(match.group(1), {**style, "href": href}))
+                    index = match.end()
+                    continue
+
+        next_markers = [
+            position
+            for position in (
+                text.find("***", index + 1),
+                text.find("**", index + 1),
+                text.find("==", index + 1),
+                text.find("[", index + 1),
+            )
+            if position != -1
+        ]
+        next_index = min(next_markers) if next_markers else len(text)
+        runs.append(apply_style({"text": text[index:next_index]}, style))
+        index = next_index
+
+    return merge_runs(runs)
+
+
+def normalize_markdown_bullets(text):
+    return re.sub(r"(?m)^[ \t]*-[ \t]+", "•\t", text)
+
+
+def has_markdown_formatting(text):
+    return bool(MARKDOWN_MARKERS_PATTERN.search(text))
 
 
 def normalize_runs(runs):
@@ -226,16 +295,43 @@ def plain_text_from_runs(runs):
     return "".join(run.get("text", "") for run in runs)
 
 
-def sanitize_href(value):
-    if not value:
-        return None
+def run_from_text(text, font=None, href=None):
+    run = {"text": str(text or "")}
 
-    href = str(value).strip()
+    if getattr(font, "b", False) or getattr(font, "bold", False):
+        run["bold"] = True
 
-    if re.match(r"^(https?://|mailto:)", href, re.IGNORECASE):
-        return href
+    if is_red_font(font):
+        run["highlight"] = "required"
 
-    return None
+    if getattr(font, "u", None) or getattr(font, "underline", None):
+        run["underline"] = True
+
+    if href:
+        run["href"] = href
+
+    return run
+
+
+def cell_runs(cell):
+    value = cell.value
+    href = cell.hyperlink.target if cell.hyperlink and cell.hyperlink.target else None
+
+    if value is None:
+        return []
+
+    if isinstance(value, CellRichText):
+        runs = []
+
+        for item in value:
+            if isinstance(item, TextBlock):
+                runs.append(run_from_text(item.text, item.font))
+            else:
+                runs.append({"text": str(item)})
+
+        return runs
+
+    return [run_from_text(value, cell.font, href)]
 
 
 def resolve_underlined_links(runs):
@@ -308,7 +404,20 @@ def formatted_runs_for_json(runs):
     return merge_runs(json_runs)
 
 
-def cell_text_and_formatting(cell):
+def markdown_text_and_formatting(value):
+    text = clean_text(value)
+
+    if not text:
+        return "", None
+
+    normalized_text = normalize_markdown_bullets(text)
+    formatted_runs = formatted_runs_for_json(normalize_runs(parse_markdown_inline(normalized_text)))
+    plain_text = plain_text_from_runs(formatted_runs)
+
+    return plain_text, formatted_runs if formatted_runs else None
+
+
+def excel_rich_text_and_formatting(cell):
     normalized_runs = normalize_runs(cell_runs(cell))
     text = plain_text_from_runs(normalized_runs)
 
@@ -320,6 +429,15 @@ def cell_text_and_formatting(cell):
     has_formatting = any(any(key in run for key in ("bold", "highlight", "href")) for run in formatted_runs)
 
     return text, formatted_runs if has_formatting else None
+
+
+def cell_text_and_formatting(cell):
+    raw_text = clean_text(cell.value)
+
+    if raw_text and has_markdown_formatting(raw_text):
+        return markdown_text_and_formatting(raw_text)
+
+    return excel_rich_text_and_formatting(cell)
 
 
 def convert(source_path, output_path):
@@ -406,7 +524,12 @@ def convert(source_path, output_path):
 
 def main():
     parser = argparse.ArgumentParser(description="Convert the STC email text block workbook to JSON.")
-    parser.add_argument("source", type=Path)
+    parser.add_argument(
+        "source",
+        type=Path,
+        nargs="?",
+        default=Path("source/STC_Textblocs_Source.xlsx"),
+    )
     parser.add_argument(
         "--output",
         type=Path,

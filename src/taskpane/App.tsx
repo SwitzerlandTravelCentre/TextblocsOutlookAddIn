@@ -115,7 +115,7 @@ function App() {
       <header className="pane-header">
         <div>
           <p className="eyebrow">TextBlocsFIT</p>
-          <h1>STC Textblocs v1.0.3</h1>
+          <h1>STC Textblocs v1.0.4</h1>
         </div>
       </header>
 

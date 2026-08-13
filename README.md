@@ -45,7 +45,7 @@ No external data source, Microsoft Graph, MSAL, Entra app registration, or runti
 
 ## Updating Text Blocks
 
-The runtime data lives here:
+The source workbook lives in `source/STC_Textblocs_Source.xlsx`. The runtime data lives here:
 
 ```text
 public/data/textblocks.json
@@ -54,7 +54,13 @@ public/data/textblocks.json
 To regenerate it from the Excel workbook:
 
 ```powershell
-python tools/convert-xlsx-to-json.py "C:\path\to\Bausteine E-Mails (1).xlsx" --output public\data\textblocks.json
+npm run convert:textblocks
+```
+
+This uses `tools/convert-xlsx-to-json-runner.txt`, which keeps UTF-8 formatting intact and avoids Windows or OneDrive cases where Python cannot read local `.py` files directly. The direct Python command is still available on machines where direct script execution works:
+
+```powershell
+python tools/convert-xlsx-to-json.py
 ```
 
 The converter requires Python with `openpyxl` available.
@@ -64,31 +70,32 @@ The converter expects these workbook columns:
 ```text
 Category
 Topic
-Usage
-Weight
 German
 French
 English
 Italian
 ```
 
-`Weight` is optional and defaults to `0`. Use higher values, for example `9` or `10`, to place often-used text blocks higher in the default list. `Englisch` is also supported as an English column name for compatibility with earlier exports.
+`Usage` and `Weight` are optional. `Usage` defaults to an empty value and `Weight` defaults to `0`. Use higher weights, for example `9` or `10`, to place often-used text blocks higher in the default list. `Englisch` is also supported as an English column name for compatibility with earlier exports.
 
 Line breaks are preserved when the JSON text contains newline characters. In Excel, add line breaks inside a cell with `Alt+Enter`; the converter writes them as `\n`, and the add-in formats them when inserting into Outlook. A blank line creates a new HTML paragraph with Outlook-friendly spacing, while a single line break inside a paragraph becomes an HTML line break. Keep the Excel source readable and do not type `<p>`, `<br>`, `<a>`, or other HTML tags in the workbook.
 
 URLs in the Excel text can be maintained as plain `https://`, `http://`, or `mailto:` values. During Outlook insertion, the add-in turns them into clickable black links and keeps punctuation after the URL outside the link.
 
-Excel rich-text formatting is exported into the JSON for Outlook insertion:
+Markdown-style formatting in the Excel language cells is exported into the JSON for Outlook insertion:
 
-- Bold Excel text is inserted as bold text.
-- Red Excel text is inserted with a yellow change-required highlight.
-- For labelled links, underline the visible label in Excel and write the URL immediately after it in parentheses, for example `allgemeinen Vertragsbedingungen (https://...)`. Outlook inserts only the underlined label as a black underlined link and stores the URL as the link target.
+- `**Text**` is inserted as bold text.
+- `==Text==` is inserted with a yellow change-required highlight.
+- `[Link text](https://...)` is inserted as a black underlined link and stores the URL as the link target.
+- Lines starting with `- ` are inserted with a bullet marker.
+
+Excel rich-text formatting remains supported as a fallback, but Markdown-style source text is preferred because it is easier to review and less fragile across Excel clients.
 
 Recommended maintainer workflow:
 
 1. Maintain text blocks in the Excel workbook as readable plain text.
 2. Use blank lines for paragraph breaks and `Alt+Enter` for line breaks inside a cell.
-3. Add plain URLs as normal URLs. For labelled links, underline the visible label and place the URL in parentheses directly after it.
+3. Add links as `[visible label](https://...)`; add plain URLs only when the URL itself should be visible.
 4. Generate `public/data/textblocks.json` from the workbook.
 5. Upload the generated JSON to the hosted add-in location, for example `data/textblocks.json` in SharePoint. This can run weekly and may also be triggered manually.
 
@@ -106,6 +113,7 @@ Recommended maintainer workflow:
 
 - `public/data/textblocks.json` contains the generated static text block data.
 - `tools/convert-xlsx-to-json.py` converts the Excel source workbook to JSON.
+- `tools/convert-xlsx-to-json-runner.txt` is the Windows/OneDrive-safe runner used by `npm run convert:textblocks`.
 - `src/models/textBlock.ts` contains runtime text block types.
 - `src/services/textBlockDataService.ts` loads and validates the static JSON data.
 - `src/utils/searchTextBlocks.ts` handles filtering and relevance sorting.

@@ -1,0 +1,22 @@
+import importlib.machinery
+import pathlib
+import subprocess
+import sys
+import tempfile
+
+SCRIPT_NAME = "convert-xlsx-to-json.py"
+SCRIPT_REF = f":tools/{SCRIPT_NAME}"
+
+script_path = pathlib.Path(__file__).resolve().with_name(SCRIPT_NAME)
+
+try:
+    script_bytes = script_path.read_bytes()
+except PermissionError:
+    script_bytes = subprocess.check_output(["git", "show", SCRIPT_REF])
+
+tmp_path = pathlib.Path(tempfile.gettempdir()) / "stc-convert-xlsx-to-json.py.txt"
+tmp_path.write_bytes(script_bytes)
+
+sys.argv = [SCRIPT_NAME, *sys.argv[1:]]
+module = importlib.machinery.SourceFileLoader("stc_convert_xlsx_to_json", str(tmp_path)).load_module()
+module.main()
