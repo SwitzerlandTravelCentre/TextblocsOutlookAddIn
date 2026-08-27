@@ -14,13 +14,13 @@
   <!-- Production: replace every https://localhost:3000 URL in this manifest
        with the SharePoint folder where the built dist files are hosted.
        Example:
-       https://stctravel.sharepoint.com/sites/STCGlobal/SiteAssets/TextblocsOutlook -->
+       <ADDIN_HOST_URL> -->
   <IconUrl DefaultValue="https://localhost:3000/assets/icon-32.png"/>
   <HighResolutionIconUrl DefaultValue="https://localhost:3000/assets/icon-80.png"/>
   <SupportUrl DefaultValue="https://www.switzerlandtravelcentre.com/"/>
   <AppDomains>
     <!-- Production AppDomain should be the SharePoint origin only, e.g.
-         https://stctravel.sharepoint.com -->
+         <SHAREPOINT_ORIGIN> -->
     <AppDomain>https://localhost:3000</AppDomain>
   </AppDomains>
   <Hosts>

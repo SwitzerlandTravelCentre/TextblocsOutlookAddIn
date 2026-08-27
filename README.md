@@ -45,7 +45,7 @@ No external data source, Microsoft Graph, MSAL, Entra app registration, or runti
 
 ## Updating Text Blocks
 
-The source workbook lives in `source/STC_Textblocs_Source.xlsx`. The runtime data lives here:
+The source workbook is external and must be passed explicitly as `<SOURCE_XLSX_PATH>`. The runtime data lives here:
 
 ```text
 public/data/textblocks.json
@@ -54,13 +54,13 @@ public/data/textblocks.json
 To regenerate it from the Excel workbook:
 
 ```powershell
-npm run convert:textblocks
+npm run convert:textblocks -- "<SOURCE_XLSX_PATH>" --output public\data\textblocks.json
 ```
 
 This uses `tools/convert-xlsx-to-json-runner.txt`, which keeps UTF-8 formatting intact and avoids Windows or OneDrive cases where Python cannot read local `.py` files directly. The direct Python command is still available on machines where direct script execution works:
 
 ```powershell
-python tools/convert-xlsx-to-json.py
+python tools/convert-xlsx-to-json.py "<SOURCE_XLSX_PATH>" --output public\data\textblocks.json
 ```
 
 The converter requires Python with `openpyxl` available. If `openpyxl` is missing, install it with:
@@ -108,7 +108,7 @@ Recommended maintainer workflow:
 - Outlook permission is scoped to `ReadWriteItem` so the add-in can insert into the current compose body.
 - The add-in does not send email, read mailbox contents, change recipients, modify subject, touch attachments, or alter signatures directly.
 - For SharePoint hosting, upload the built `dist` files to the SharePoint folder and replace every `https://localhost:3000` URL in `manifest.xml` with that SharePoint folder URL.
-- The production `AppDomain` in `manifest.xml` should be the SharePoint origin only, for example `https://stctravel.sharepoint.com`.
+- The production `AppDomain` in `manifest.xml` should be the SharePoint origin only, for example `<SHAREPOINT_ORIGIN>`.
 - The JSON data path is configured in `src/services/textBlockDataService.ts` as `textBlockDataRelativePath`; change it only if `textblocks.json` is moved outside the built `dist/data` folder.
 - Office command icons are PNG files because Outlook manifest validation rejects SVG icon URLs.
 - Text changes require regenerating `textblocks.json` and redeploying the hosted add-in files. End users do not update anything locally.
@@ -118,6 +118,7 @@ Recommended maintainer workflow:
 - `public/data/textblocks.json` contains the generated static text block data.
 - `tools/convert-xlsx-to-json.py` converts the Excel source workbook to JSON.
 - `tools/convert-xlsx-to-json-runner.txt` is the Windows/OneDrive-safe runner used by `npm run convert:textblocks`.
+- `docs/instructions.md` contains reusable IT and data-update instructions with placeholders.
 - `docs/xls-markdown-guide.md` explains how maintainers format Excel text blocks with Markdown.
 - `src/models/textBlock.ts` contains runtime text block types.
 - `src/services/textBlockDataService.ts` loads and validates the static JSON data.

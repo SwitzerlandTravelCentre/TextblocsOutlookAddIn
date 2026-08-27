@@ -9,7 +9,7 @@ Die Markdown-Zeichen bleiben im Excel sichtbar. Im eingefügten Outlook-Text wer
 Die Textquelle ist:
 
 ```text
-source/STC_Textblocs_Source.xlsx
+<SOURCE_XLSX_PATH>
 ```
 
 Pro Zeile gibt es einen Textbaustein. Gepflegt werden vor allem diese Spalten:

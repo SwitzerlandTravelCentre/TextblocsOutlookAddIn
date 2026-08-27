@@ -16,16 +16,10 @@ The add-in currently uses a static JSON file:
 public/data/textblocks.json
 ```
 
-The source workbook lives in `source/STC_Textblocs_Source.xlsx`. Generate the JSON with:
+The source workbook is external and must be passed explicitly as `<SOURCE_XLSX_PATH>`. Generate the JSON with:
 
 ```powershell
-npm run convert:textblocks
-```
-
-To convert another workbook, pass it after `--`:
-
-```powershell
-npm run convert:textblocks -- "C:\path\to\STC_Textblocs_Source.xlsx" --output public\data\textblocks.json
+npm run convert:textblocks -- "<SOURCE_XLSX_PATH>" --output public\data\textblocks.json
 ```
 
 The converter requires Python with `openpyxl` available. If `openpyxl` is missing, install it with:
@@ -53,7 +47,7 @@ No external data source, Microsoft Graph, MSAL, Entra app registration, or runti
 3. Replace every `https://localhost:3000` URL in `manifest.xml` with the SharePoint folder URL where the built files are reachable:
 
    ```text
-   https://stctravel.sharepoint.com/sites/STCGlobal/SiteAssets/TextblocsOutlook
+   <ADDIN_HOST_URL>
    ```
 
    Use the folder URL where `assets`, `data`, and `src/taskpane/taskpane.html` are reachable. Do not add a trailing slash.
@@ -61,7 +55,7 @@ No external data source, Microsoft Graph, MSAL, Entra app registration, or runti
 4. Set the production `AppDomain` in `manifest.xml` to the SharePoint origin only:
 
    ```text
-   https://stctravel.sharepoint.com
+   <SHAREPOINT_ORIGIN>
    ```
 
 5. Use the adjusted manifest for sideloading or centralized deployment.

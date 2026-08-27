@@ -523,12 +523,11 @@ def convert(source_path, output_path):
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Convert the STC email text block workbook to JSON.")
+    parser = argparse.ArgumentParser(description="Convert an email text block workbook to JSON.")
     parser.add_argument(
         "source",
         type=Path,
-        nargs="?",
-        default=Path("source/STC_Textblocs_Source.xlsx"),
+        help="Path to the source .xlsx workbook, for example <SOURCE_XLSX_PATH>.",
     )
     parser.add_argument(
         "--output",
