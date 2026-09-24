@@ -1,0 +1,77 @@
+name: Refresh and publish Textblocs
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Monday 04:17 UTC (06:17 Swiss summer time / 05:17 winter time).
+    - cron: '17 4 * * 1'
+
+permissions:
+  contents: read
+  id-token: write
+
+concurrency:
+  group: textblocs-production
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    if: github.repository == 'SwitzerlandTravelCentre/TextblocsOutlookAddIn' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    # No GitHub environment: the federated Entra identity only trusts
+    # repo:SwitzerlandTravelCentre/TextblocsOutlookAddIn:ref:refs/heads/main.
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Install dependencies
+        run: |
+          python -m pip install -r tools/requirements-refresh.txt
+          npm ci --ignore-scripts --no-audit --no-fund
+      - name: Validate the refresh safeguards
+        run: python -m unittest discover -s tools -p 'test_refresh_*.py'
+      - uses: azure/login@v2
+        with:
+          client-id: ${{ vars.TEXTBLOCKS_READER_CLIENT_ID }}
+          tenant-id: ${{ vars.TEXTBLOCKS_TENANT_ID }}
+          allow-no-subscriptions: true
+      - name: Download and convert the SharePoint source
+        env:
+          TEXTBLOCKS_DRIVE_ID: ${{ vars.TEXTBLOCKS_DRIVE_ID }}
+          TEXTBLOCKS_ITEM_ID: ${{ vars.TEXTBLOCKS_ITEM_ID }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          TEXTBLOCKS_GRAPH_TOKEN=$(az account get-access-token --resource https://graph.microsoft.com --query accessToken -o tsv)
+          echo "::add-mask::$TEXTBLOCKS_GRAPH_TOKEN"
+          export TEXTBLOCKS_GRAPH_TOKEN
+          python tools/refresh_textblocks.py
+      - name: Test and build the candidate
+        run: |
+          npm test
+          npm run build
+          cp manifest.xml dist/manifest.xml
+          python -c "from pathlib import Path; p=Path('dist/manifest.xml'); p.write_text(p.read_text().replace('https://localhost:3000','https://calm-rock-03c40f810.7.azurestaticapps.net'))"
+      - name: Publish only after all checks pass
+        uses: Azure/static-web-apps-deploy@v1
+        with:
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
+          action: upload
+          app_location: dist
+          output_location: ''
+          skip_app_build: true
+          skip_api_build: true
+          production_branch: main
+      - name: Verify the published JSON
+        # Explicit bash => -eo pipefail, so a failed verification fails the step despite tee.
+        shell: bash
+        run: python tools/verify_textblocks.py | tee -a "$GITHUB_STEP_SUMMARY"
+      - name: Failure summary
+        if: failure()
+        run: echo 'Refresh failed. Check the failed step. If deployment was not reached, production is unchanged; after a deployment/verification failure, verify production and redeploy the previous release if necessary.' >> "$GITHUB_STEP_SUMMARY"

@@ -11,7 +11,8 @@ describe("textblocks.json", () => {
   it("contains the generated Excel data in the expected schema", () => {
     expect(data.schemaVersion).toBe(1);
     expect(data.blocks).toHaveLength(data.blockCount);
-    expect(data.blockCount).toBe(296);
+    expect(data.blockCount).toBeGreaterThan(0);
+    expect(new Set(data.blocks.map((block) => block.id)).size).toBe(data.blockCount);
   });
 
   it("contains all supported languages", () => {
