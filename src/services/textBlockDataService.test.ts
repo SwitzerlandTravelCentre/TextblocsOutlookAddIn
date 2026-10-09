@@ -35,6 +35,7 @@ describe("TextBlockDataService", () => {
     const blocks = await new TextBlockDataService().getTextBlocks();
 
     expect(blocks).toHaveLength(1);
+    expect(blocks[0].department).toBe("General");
     expect(blocks[0].weight).toBe(0);
     expect(blocks[0].formattedText).toEqual([
       { text: "Danke", bold: true },

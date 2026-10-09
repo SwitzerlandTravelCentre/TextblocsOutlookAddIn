@@ -28,7 +28,7 @@ The converter requires Python with `openpyxl` available. If `openpyxl` is missin
 python -m pip install openpyxl
 ```
 
-`Usage` and `Weight` workbook columns are optional. Missing `Usage` values default to an empty value. Missing `Weight` values default to `0`; higher values move entries higher in the default, non-search list. Search results are still ordered by search relevance.
+`Department` is the first-level filter in the add-in. `Departement` is also supported as a column name for compatibility with the current source export. `Usage` and `Weight` workbook columns are optional. Missing `Usage` values default to an empty value. Missing `Weight` values default to `0`; higher values move entries higher in the default, non-search list. Search results are still ordered by search relevance inside the selected department.
 
 Line breaks inside workbook cells should be entered with `Alt+Enter`. They are preserved in JSON as newline characters and inserted into Outlook as paragraphs and line breaks. Markdown-style `**bold**`, `==required text==`, `[link label](https://example.com)`, and `- ` bullet markers are converted into Outlook-ready formatting.
 

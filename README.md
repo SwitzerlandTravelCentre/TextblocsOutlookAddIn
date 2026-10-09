@@ -72,6 +72,7 @@ python -m pip install openpyxl
 The converter expects these workbook columns:
 
 ```text
+Department
 Category
 Topic
 German
@@ -80,7 +81,7 @@ English
 Italian
 ```
 
-`Usage` and `Weight` are optional. `Usage` defaults to an empty value and `Weight` defaults to `0`. Use higher weights, for example `9` or `10`, to place often-used text blocks higher in the default list. `Englisch` is also supported as an English column name for compatibility with earlier exports.
+`Departement` is also supported as a department column name for compatibility with the current source export. `Usage` and `Weight` are optional. `Usage` defaults to an empty value and `Weight` defaults to `0`. Use higher weights, for example `9` or `10`, to place often-used text blocks higher in the default list. `Englisch` is also supported as an English column name for compatibility with earlier exports.
 
 Line breaks are preserved when the JSON text contains newline characters. In Excel, add line breaks inside a cell with `Alt+Enter`; the converter writes them as `\n`, and the add-in formats them when inserting into Outlook. A blank line creates a new HTML paragraph with Outlook-friendly spacing, while a single line break inside a paragraph becomes an HTML line break. Keep the Excel source readable and do not type `<p>`, `<br>`, `<a>`, or other HTML tags in the workbook.
 

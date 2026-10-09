@@ -6,6 +6,7 @@ const blocks: TextBlock[] = [
   {
     id: "1-de",
     sourceItemId: "1",
+    department: "B2C",
     category: "Bahn Tickets",
     topic: "Gueltigkeit Bahntickets",
     usage: "Information",
@@ -17,6 +18,7 @@ const blocks: TextBlock[] = [
   {
     id: "2-en",
     sourceItemId: "2",
+    department: "B2C",
     category: "Payments",
     topic: "Payment link",
     usage: "Outstanding amount",
@@ -28,6 +30,7 @@ const blocks: TextBlock[] = [
   {
     id: "3-fr",
     sourceItemId: "3",
+    department: "B2B",
     category: "Payments",
     topic: "General information",
     usage: "Standard",
@@ -49,6 +52,19 @@ describe("searchTextBlocks", () => {
 
     expect(result).toHaveLength(1);
     expect(result[0].id).toBe("2-en");
+  });
+
+  it("filters search results by department unless all departments is selected", () => {
+    expect(searchTextBlocks(blocks, "payment", "ALL", "ALL", "B2C").map((block) => block.id)).toEqual([
+      "2-en"
+    ]);
+    expect(searchTextBlocks(blocks, "payment", "ALL", "ALL", "ALL")).toHaveLength(2);
+  });
+
+  it("matches normalized category values", () => {
+    const result = searchTextBlocks(blocks, "", "ALL", " payments ");
+
+    expect(result.map((block) => block.id)).toEqual(["3-fr", "2-en"]);
   });
 
   it("sorts the default list by weight first", () => {

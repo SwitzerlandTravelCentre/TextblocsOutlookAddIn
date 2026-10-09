@@ -72,6 +72,7 @@ src/taskpane/taskpane.html
 
 Maintain text blocks in the Excel language columns with Markdown:
 
+- Use `Department` or `Departement` for the department filter, for example `B2C`, `B2B`, or `STS`.
 - `**Text**` for bold text.
 - `==Text==` for yellow "must edit" highlights.
 - `**==Text==**` for bold highlighted placeholders.

@@ -13,6 +13,7 @@ export interface TextBlock {
   sourceItemId: string;
   sourceSheet?: string;
   sourceRow?: number;
+  department?: string;
   category: string;
   topic: string;
   usage: string;

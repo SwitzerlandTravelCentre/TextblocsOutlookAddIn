@@ -19,6 +19,8 @@ LANGUAGE_COLUMNS = [
     ("Italian", "IT", "Italian"),
 ]
 
+DEPARTMENT_COLUMNS = ["Department", "Departement", "Dept", "Business Unit", "Team"]
+
 PARENTHESIZED_URL_PATTERN = re.compile(r"^\s*\((https?://[^)\s]+|mailto:[^)\s]+)\)", re.IGNORECASE)
 MARKDOWN_LINK_PATTERN = re.compile(r"\[([^\]]+)\]\((https?://[^)\s]+|mailto:[^)\s]+)\)", re.IGNORECASE)
 MARKDOWN_MARKERS_PATTERN = re.compile(r"(\*\*.*?\*\*|==.*?==|\[[^\]]+\]\((?:https?://[^)\s]+|mailto:[^)\s]+)\)|(^|\n)[ \t]*-[ \t]+)", re.IGNORECASE | re.DOTALL)
@@ -452,6 +454,7 @@ def convert(source_path, output_path):
             continue
 
         category_column = headers.get("Category")
+        department_column = next((headers[field] for field in DEPARTMENT_COLUMNS if field in headers), None)
         topic_column = headers.get("Topic")
         usage_column = headers.get("Usage")
         weight_column = headers.get("Weight") or headers.get("weight")
@@ -464,6 +467,7 @@ def convert(source_path, output_path):
                 seen_language_codes.add(code)
 
         for row_index in range(header_row_index + 1, sheet.max_row + 1):
+            department = clean_text(sheet.cell(row_index, department_column).value) if department_column else "General"
             category = clean_text(sheet.cell(row_index, category_column).value) if category_column else ""
             topic = clean_text(sheet.cell(row_index, topic_column).value) if topic_column else ""
             usage = clean_text(sheet.cell(row_index, usage_column).value) if usage_column else ""
@@ -489,6 +493,7 @@ def convert(source_path, output_path):
                     "sourceItemId": f"{sheet.title}!{row_index}",
                     "sourceSheet": sheet.title,
                     "sourceRow": row_index,
+                    "department": department or "General",
                     "category": category,
                     "topic": topic,
                     "usage": usage,

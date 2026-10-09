@@ -8,6 +8,7 @@ import {
 
 const languages: TextBlockLanguage[] = ["DE", "FR", "EN", "IT"];
 const textBlockDataRelativePath = "../../data/textblocks.json";
+const fallbackDepartment = "General";
 
 function getTextBlockDataUrl(): string {
   if (typeof window === "undefined") {
@@ -40,6 +41,7 @@ function isTextBlock(value: unknown): value is TextBlock {
 
   const block = value as Partial<TextBlock>;
   const hasValidWeight = block.weight === undefined || typeof block.weight === "number";
+  const hasValidDepartment = block.department === undefined || typeof block.department === "string";
   const hasValidFormattedText =
     block.formattedText === undefined ||
     (Array.isArray(block.formattedText) && block.formattedText.every(isFormattedTextRun));
@@ -47,6 +49,7 @@ function isTextBlock(value: unknown): value is TextBlock {
   return (
     typeof block.id === "string" &&
     typeof block.sourceItemId === "string" &&
+    hasValidDepartment &&
     typeof block.category === "string" &&
     typeof block.topic === "string" &&
     typeof block.usage === "string" &&
@@ -62,6 +65,7 @@ function isTextBlock(value: unknown): value is TextBlock {
 function withDefaultWeight(block: TextBlock): TextBlock {
   return {
     ...block,
+    department: block.department?.trim() || fallbackDepartment,
     weight: block.weight ?? 0
   };
 }

@@ -15,6 +15,7 @@ Die Textquelle ist:
 Pro Zeile gibt es einen Textbaustein. Gepflegt werden vor allem diese Spalten:
 
 ```text
+Department
 Category
 Topic
 German
@@ -23,7 +24,7 @@ English
 Italian
 ```
 
-Die Markdown-Formatierung gehört nur in die Sprachspalten, also `German`, `French`, `English` und `Italian`.
+Die Markdown-Formatierung gehört nur in die Sprachspalten, also `German`, `French`, `English` und `Italian`. Die Spalte `Departement` wird ebenfalls akzeptiert, falls der Export diese Schreibweise verwendet.
 
 ## Grundregeln
 
