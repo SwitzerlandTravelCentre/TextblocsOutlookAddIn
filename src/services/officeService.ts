@@ -41,8 +41,11 @@ function trimUrlPunctuation(value: string): { url: string; suffix: string } {
 }
 
 const outlookParagraphStyle = "margin:0 0 12px 0;";
+const outlookListStyle = "margin:0 0 12px 22px;padding-left:18px;";
+const outlookListItemStyle = "margin:0 0 4px 0;";
 const outlookLinkStyle = "color:#000;text-decoration:underline;";
 const outlookHighlightStyle = "background-color:#fff2cc;color:#000;";
+const markdownBulletPrefixPattern = /^[ \t]*(?:\u2022[\t ]+|-[ \t]+)/;
 
 function isAllowedHref(value: string): boolean {
   return /^(?:https?:\/\/|mailto:)/i.test(value);
@@ -104,6 +107,66 @@ function formattedRunToHtml(run: TextBlockFormattedRun): string {
   return html;
 }
 
+function runsToPlainText(runs: TextBlockFormattedRun[]): string {
+  return runs.map((run) => run.text).join("");
+}
+
+function splitRunsByLine(runs: TextBlockFormattedRun[]): TextBlockFormattedRun[][] {
+  const lines: TextBlockFormattedRun[][] = [[]];
+
+  runs.forEach((run) => {
+    normalizeLineBreaks(run.text)
+      .split("\n")
+      .forEach((part, index) => {
+        if (index > 0) {
+          lines.push([]);
+        }
+
+        if (part) {
+          lines[lines.length - 1].push({ ...run, text: part });
+        }
+      });
+  });
+
+  return lines;
+}
+
+function dropLeadingCharactersFromRuns(
+  runs: TextBlockFormattedRun[],
+  characterCount: number
+): TextBlockFormattedRun[] {
+  let remainingCharacters = characterCount;
+  const output: TextBlockFormattedRun[] = [];
+
+  runs.forEach((run) => {
+    if (remainingCharacters >= run.text.length) {
+      remainingCharacters -= run.text.length;
+      return;
+    }
+
+    const text = remainingCharacters > 0 ? run.text.slice(remainingCharacters) : run.text;
+    remainingCharacters = 0;
+
+    if (text) {
+      output.push({ ...run, text });
+    }
+  });
+
+  return output;
+}
+
+function stripMarkdownBulletPrefixFromRuns(
+  runs: TextBlockFormattedRun[]
+): TextBlockFormattedRun[] | null {
+  const match = markdownBulletPrefixPattern.exec(runsToPlainText(runs));
+
+  if (!match) {
+    return null;
+  }
+
+  return dropLeadingCharactersFromRuns(runs, match[0].length);
+}
+
 function splitFormattedParagraphs(runs: TextBlockFormattedRun[]): TextBlockFormattedRun[][] {
   const paragraphs: TextBlockFormattedRun[][] = [[]];
 
@@ -131,13 +194,150 @@ function splitFormattedParagraphs(runs: TextBlockFormattedRun[]): TextBlockForma
   );
 }
 
+function formattedLinesToParagraphHtml(lines: TextBlockFormattedRun[][]): string {
+  return `<p style="${outlookParagraphStyle}">${lines
+    .map((line) => line.map(formattedRunToHtml).join(""))
+    .join("<br>")}</p>`;
+}
+
+function formattedListToHtml(items: TextBlockFormattedRun[][]): string {
+  return `<ul style="${outlookListStyle}">${items
+    .map(
+      (item) =>
+        `<li style="${outlookListItemStyle}">${item.map(formattedRunToHtml).join("")}</li>`
+    )
+    .join("")}</ul>`;
+}
+
+function formattedParagraphToOutlookHtml(runs: TextBlockFormattedRun[]): string {
+  const blocks: string[] = [];
+  let paragraphLines: TextBlockFormattedRun[][] = [];
+  let listItems: TextBlockFormattedRun[][] = [];
+
+  const flushParagraph = () => {
+    if (!paragraphLines.length) {
+      return;
+    }
+
+    blocks.push(formattedLinesToParagraphHtml(paragraphLines));
+    paragraphLines = [];
+  };
+
+  const flushList = () => {
+    if (!listItems.length) {
+      return;
+    }
+
+    blocks.push(formattedListToHtml(listItems));
+    listItems = [];
+  };
+
+  splitRunsByLine(runs).forEach((line) => {
+    if (!line.some((run) => run.text.trim().length > 0)) {
+      return;
+    }
+
+    const listItem = stripMarkdownBulletPrefixFromRuns(line);
+
+    if (listItem) {
+      flushParagraph();
+      listItems.push(listItem);
+      return;
+    }
+
+    if (listItems.length) {
+      listItems[listItems.length - 1].push({ text: "\n" }, ...line);
+      return;
+    }
+
+    flushList();
+    paragraphLines.push(line);
+  });
+
+  flushParagraph();
+  flushList();
+
+  return blocks.join("");
+}
+
 function formattedTextToOutlookHtml(runs: TextBlockFormattedRun[]): string {
   return splitFormattedParagraphs(runs)
-    .map(
-      (paragraph) =>
-        `<p style="${outlookParagraphStyle}">${paragraph.map(formattedRunToHtml).join("")}</p>`
-    )
+    .map((paragraph) => formattedParagraphToOutlookHtml(paragraph))
     .join("");
+}
+
+function stripMarkdownBulletPrefixFromText(text: string): string | null {
+  const match = markdownBulletPrefixPattern.exec(text);
+
+  if (!match) {
+    return null;
+  }
+
+  return text.slice(match[0].length);
+}
+
+function plainLinesToParagraphHtml(lines: string[]): string {
+  return `<p style="${outlookParagraphStyle}">${lines.map(textLineToHtml).join("<br>")}</p>`;
+}
+
+function plainListToHtml(items: string[][]): string {
+  return `<ul style="${outlookListStyle}">${items
+    .map(
+      (item) =>
+        `<li style="${outlookListItemStyle}">${item.map(textLineToHtml).join("<br>")}</li>`
+    )
+    .join("")}</ul>`;
+}
+
+function plainParagraphToOutlookHtml(paragraph: string): string {
+  const blocks: string[] = [];
+  let paragraphLines: string[] = [];
+  let listItems: string[][] = [];
+
+  const flushParagraph = () => {
+    if (!paragraphLines.length) {
+      return;
+    }
+
+    blocks.push(plainLinesToParagraphHtml(paragraphLines));
+    paragraphLines = [];
+  };
+
+  const flushList = () => {
+    if (!listItems.length) {
+      return;
+    }
+
+    blocks.push(plainListToHtml(listItems));
+    listItems = [];
+  };
+
+  paragraph.split("\n").forEach((line) => {
+    if (!line.trim()) {
+      return;
+    }
+
+    const listItem = stripMarkdownBulletPrefixFromText(line);
+
+    if (listItem !== null) {
+      flushParagraph();
+      listItems.push([listItem]);
+      return;
+    }
+
+    if (listItems.length) {
+      listItems[listItems.length - 1].push(line);
+      return;
+    }
+
+    flushList();
+    paragraphLines.push(line);
+  });
+
+  flushParagraph();
+  flushList();
+
+  return blocks.join("");
 }
 
 export function textToOutlookHtml(text: string, formattedText?: TextBlockFormattedRun[]): string {
@@ -150,7 +350,7 @@ export function textToOutlookHtml(text: string, formattedText?: TextBlockFormatt
     .filter((paragraph) => paragraph.trim().length > 0);
 
   return paragraphs
-    .map((paragraph) => `<p style="${outlookParagraphStyle}">${paragraph.split("\n").map(textLineToHtml).join("<br>")}</p>`)
+    .map((paragraph) => plainParagraphToOutlookHtml(paragraph))
     .join("");
 }
 
