@@ -10,6 +10,7 @@ import {
   Upload
 } from "lucide-react";
 import { ChangeEvent, useEffect, useMemo, useRef, useState } from "react";
+import { appBuildLabel, buildTimestamp } from "../config/buildInfo";
 import { TextBlock } from "../models/textBlock";
 import { copyTextToClipboard, insertTextIntoEmail } from "../services/officeService";
 import { TextBlockDataService } from "../services/textBlockDataService";
@@ -23,7 +24,6 @@ import {
   searchTextBlocks
 } from "../utils/searchTextBlocks";
 
-const appVersion = "1.1.0";
 const favoriteStorageKey = "textblocsfit:favorites:v1";
 const departmentStorageKey = "textblocsfit:lastDepartment:v1";
 
@@ -327,7 +327,10 @@ function App() {
       <header className="pane-header">
         <div>
           <p className="eyebrow">TextBlocsFIT</p>
-          <h1>STC Textblocs v{appVersion}</h1>
+          <h1>STC Textblocs</h1>
+          <p className="build-version" title={`Build created ${buildTimestamp}`}>
+            {appBuildLabel}
+          </p>
         </div>
       </header>
 

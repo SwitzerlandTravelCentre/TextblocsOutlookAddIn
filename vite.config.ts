@@ -1,9 +1,27 @@
+import { execSync } from "node:child_process";
 import { existsSync, readFileSync } from "node:fs";
 import type { ServerOptions } from "node:https";
 import { homedir } from "node:os";
 import { join } from "node:path";
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
+
+const appVersion = "1.1.1";
+
+const getBuildCommit = (): string => {
+  try {
+    const commit = execSync("git rev-parse --short=8 HEAD", { stdio: ["ignore", "pipe", "ignore"] })
+      .toString()
+      .trim();
+    const isDirty = execSync("git status --short", { stdio: ["ignore", "pipe", "ignore"] })
+      .toString()
+      .trim().length > 0;
+
+    return isDirty ? `${commit}-dirty` : commit;
+  } catch {
+    return "local";
+  }
+};
 
 const getExistingOfficeDevCertOptions = (): ServerOptions | undefined => {
   const certDirectory = join(homedir(), ".office-addin-dev-certs");
@@ -27,6 +45,11 @@ export default defineConfig(async ({ command, mode }) => {
     // Required for SharePoint/static-folder hosting: built JS/CSS links must be
     // relative to taskpane.html, not absolute from the SharePoint domain root.
     base: "./",
+    define: {
+      __APP_VERSION__: JSON.stringify(appVersion),
+      __BUILD_COMMIT__: JSON.stringify(getBuildCommit()),
+      __BUILD_TIMESTAMP__: JSON.stringify(new Date().toISOString())
+    },
     plugins: [react()],
     publicDir: "public",
     server: {

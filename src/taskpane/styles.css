@@ -72,6 +72,13 @@ h1 {
   font-weight: 700;
 }
 
+.build-version {
+  margin-top: 2px;
+  color: #6d7974;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
 .controls {
   display: flex;
   flex-direction: column;
